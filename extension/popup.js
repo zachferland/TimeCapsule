@@ -1,12 +1,4 @@
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-//     var url = tabs[0].url;
-//     var div = document.getElementById('content-url');
-//     div.innerHTML = url;
-//   });
-// });
-
 
 
 // Some actual code
@@ -26,17 +18,21 @@ var url = {
 };
 
 
+var time = {
+
+	listener: function() {
+		$(".time-button").click(function() { 
+			var timevalue = $(this).val();   
+			var div = document.getElementById('content-url');
+			div.innerHTML = timevalue; 
+		});
+	}
+};
+
+
 document.addEventListener('DOMContentLoaded', function () {
 	url.get();
+	time.listener();
 });
-
-
-// $(document).ready(function() {
-//    $(".time-button").click(function() {    
-// 		//var valueofbutton = $(this).val();    
-// 		var div = document.getElementById('content-url');
-//         div.innerHTML = "hello";
-// 	});
-// });
 
 
