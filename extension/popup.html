@@ -8,13 +8,6 @@
         overflow-x: hidden;
       }
 
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
     </style>
 
     <!--
@@ -24,8 +17,23 @@
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
     <script src="popup.js"></script>
+    <script src="jquery.js"></script>
   </head>
   <body>
+
+<div id="content-url">
+  
+</div>
+
+<button class="time-button" id="time1" value="1">Tomorrow</button>
+<button class="time-button" id="time2" value="2">This Weekend</button>
+<button class="time-button" id="time3" value="7">Next Week</button>
+<button class="time-button" id="time4" value="30">In a Month</button>
+<button class="time-button" id="time5" value="90">In 3 Months</button>
+<button class="time-button" id="time6" value="365">In a Year</button>
+<button class="time-button" id="time-selector">Pick a Date</button>
+
+
   </body>
 </html>
 
