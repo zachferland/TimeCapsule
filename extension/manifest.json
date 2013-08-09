@@ -12,7 +12,8 @@
 
  "permissions": [
     "tabs",
-    "http://localhost:3000/"
+    "http://localhost:3000/",
+    "http://www.diffbot.com/"
   ],
 
   "background": {
