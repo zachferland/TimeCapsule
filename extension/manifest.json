@@ -12,6 +12,7 @@
 
  "permissions": [
     "tabs",
+    "cookies",
     "http://localhost:3000/",
     "http://www.diffbot.com/"
   ],
