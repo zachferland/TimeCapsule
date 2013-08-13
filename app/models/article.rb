@@ -4,18 +4,24 @@ class Article < ActiveRecord::Base
    belongs_to :user
 
   def self.mail
-  	# #fetch article expired grouped by user
-  	# articles = Article.where(send_at: Time.now.midnight..(Time.now.midnight + 10.day))
-  	# articles_users = articles.group(:uid, :id)
 
-  	# articles_users.each do |user, articles|
-  	# 	# puts user.name
-  	# 	for article in articles
-  	# 		puts article.title
-  	# 	end
-  	# end
+  	articles = Article.where(send_at: Time.now.midnight..(Time.now.midnight + 40.day))
+  	articles_users = articles.group_by { |t| t.uid }
 
-  	puts Article.where(send_at: Time.now.midnight..(Time.now.midnight + 10.day)).group(:uid).count()
+  	articles_users.each do |user, articles|
+
+  		#get user
+  		@user = self.get_user(user)
+
+  		# email articles
+  		UserMailer.article_email(@user, articles).deliver
+  	end
+
+  end
+
+  private 
+  def self.get_user(user)
+	User.find(user)
   end
 
 
