@@ -9,24 +9,6 @@ Date.prototype.addDays = function(days){
 }
 
 
-chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
-  function (cookie) {
-    if (cookie) {
-      console.log(cookie.value);
-      auth_url = 'http://localhost:3000/getuser/' + cookie.value;
-      $.post(auth_url, function(data) {
-      	console.log(data);
-      	var user_id = data.user_id;
-      	console.log(user_id);
-      });
-
-    }
-    else {
-      console.log('Can\'t get cookie! Check the name!');
-    }
-});
-
-
 var url = {
 
   get: function() {
@@ -44,26 +26,44 @@ var time = {
 
 	listener: function() {
 		$(".time-button").click(function() { 
-			var timevalue = parseInt($(this).val());   
+			var timevalue = parseInt($(this).val()); 
 
-			var dat = new Date();
-			var send_at_time = dat.addDays(timevalue);
+			chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
+  				function (cookie) {
+  				  if (cookie) {
+  				    var auth_token = cookie.value;
 
-			var diffbotUrl = "http://www.diffbot.com/api/article?token=" + diffbotToken + "&url=" + url + "&summary=true";
+  				    auth_url = 'http://localhost:3000/getuser/' + auth_token;
 
-			$.get(diffbotUrl, function(data) {
-				var summary = data.summary;
-				var title = data.title;
-				var div = document.getElementById('url');
-	 			div.innerHTML = title;
+  				    $.post(auth_url, function(data) {
+  				    	var user_id = data.user_id;
+  				    	  
 
-	 			var userid = 1;
+						var dat = new Date();
+						var send_at_time = dat.addDays(timevalue);
+			
+						var diffbotUrl = "http://www.diffbot.com/api/article?token=" + diffbotToken + "&url=" + url + "&summary=true";
+			
+						$.get(diffbotUrl, function(data) {
+							var summary = data.summary;
+							var title = data.title;
+							var div = document.getElementById('url');
+	 						div.innerHTML = title;
+			
+	 						var article_url = 'http://localhost:3000/users/' + user_id + '/articles?auth_token=' + auth_token;
+			
+	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
+			
+						});
 
-	 			var article_url = 'http://localhost:3000/users/' + userid + '/articles?auth_token=' + auth_token;
-
-	 			$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
-
+  				    });
+				
+  				  }
+  				  else {
+  				    console.log('Can\'t get cookie! Check the name!');
+  				  }
 			});
+
 
 		});
 	}
@@ -71,9 +71,27 @@ var time = {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {   //wait to popup dom is loaded
 	url.get();
-	time.listener();
+
+  //is the user logged in huh
+  chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
+    function (cookie) {
+      if (cookie) {
+        //user logged in
+        console.log('You are logged in');
+		
+		time.listener();
+
+      } else {
+        //user NOT logged in    
+        console.log('You are not logged in');
+        var div = document.getElementById('url');
+        div.innerHTML = "You are not logged in";
+       
+      }
+  });
+
 });
 
 
