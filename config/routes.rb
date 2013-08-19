@@ -3,14 +3,13 @@ Timecapsule::Application.routes.draw do
 
   root :to => 'home#index'
 
-devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", :registrations => 'registrations', :sessions => "sessions"}
 
+  resources :users do 
+    resources :articles
+  end
 
-  
-  resources :articles
-
-
-  resources :users
+ post 'getuser/:authentication_token' => 'users#get_id'
 
 
   # The priority is based upon order of creation:

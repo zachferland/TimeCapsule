@@ -80,4 +80,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  respond_to :json
+  def get_id 
+    #testing for one user
+    user = User.find(12)
+    #check if user empty because of invalid or expired token
+    render :json=> {:sucess => true, :user_id => user.id}
+  end
+
 end

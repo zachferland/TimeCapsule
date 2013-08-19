@@ -8,13 +8,19 @@ Date.prototype.addDays = function(days){
     return dat;
 }
 
-//reads the cookie set by rails app, right now unsecurely just passing the user id
-var uid;
 
-chrome.cookies.get({ url: 'http://localhost:3000/', name: 'signed_in' },
+chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
   function (cookie) {
     if (cookie) {
-      uid = parseInt(cookie.value);
+      console.log(cookie.value);
+      auth_url = 'http://localhost:3000/getuser/' + cookie.value;
+      $.post(auth_url, function(data) {
+      	console.log(data);
+      	var user_id = data.user_id;
+      	console.log(user_id);
+      });
+      console.log('hello');
+
     }
     else {
       console.log('Can\'t get cookie! Check the name!');
@@ -54,7 +60,7 @@ var time = {
 
 	 			var userid = 1;
 
-	 			$.post('http://localhost:3000/articles', {article: {url: url, send_at: send_at_time, summary: summary, title: title, uid: userid}  });
+	 			$.post('http://localhost:3000/users/' + userid + '/articles', {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
 
 			});
 
