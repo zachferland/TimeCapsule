@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :send_at, :url, :summary, :title, :user_id
+  # attr_accessible   
 
    belongs_to :user
 
@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
 
   private 
   def self.get_user(user)
-	User.find(user)
+	   User.find(user)
   end
 
   private 

@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -93,6 +93,10 @@ class UsersController < ApplicationController
     # user = User.find(1)
     #check if user empty because of invalid or expired token
     
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :name)
   end
 
 end

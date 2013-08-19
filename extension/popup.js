@@ -59,7 +59,9 @@ var time = {
 
 	 			var userid = 1;
 
-	 			$.post('http://localhost:3000/users/' + userid + '/articles', {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
+	 			var article_url = 'http://localhost:3000/users/' + userid + '/articles?auth_token=' + auth_token;
+
+	 			$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
 
 			});
 

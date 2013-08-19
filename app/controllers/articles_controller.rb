@@ -44,17 +44,14 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @user = User.find(params[:user_id])
-    @article = @user.articles.new(params[:article])
+    @article = @user.articles.new(article_params)
 
-    respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, :notice => 'Article was successfully created.' }
-        format.json { render :json => @article, :status => :created, :location => @article }
+        render :json=> {:article => @article, :status => :created, :location => @article }
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @article.errors, :status => :unprocessable_entity }
+        render :json=> {:article => @article.errors, :status => :unprocessable_entity}
+        
       end
-    end
   end
 
   # PUT /articles/1
@@ -83,5 +80,9 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url }
       format.json { head :no_content }
     end
+  end
+
+   def article_params
+    params.require(:article).permit(:send_at, :url, :summary, :title, :user_id)
   end
 end
