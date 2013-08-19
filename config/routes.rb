@@ -9,7 +9,7 @@ Timecapsule::Application.routes.draw do
     resources :articles
   end
 
- post 'getuser/:authentication_token' => 'users#get_id'
+post 'getuser/:authentication_token' => 'users#get_id'
 
 
   # The priority is based upon order of creation:

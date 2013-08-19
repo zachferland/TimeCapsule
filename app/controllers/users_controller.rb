@@ -83,10 +83,16 @@ class UsersController < ApplicationController
 
   respond_to :json
   def get_id 
-    #testing for one user
-    user = User.find(12)
+    auth = params[:authentication_token]
+
+    if user = User.where(authentication_token: auth).first
+      render :json=> {:sucess => true, :user_id => user.id}
+    else
+      render :json=> {:sucess => false}
+    end
+    # user = User.find(1)
     #check if user empty because of invalid or expired token
-    render :json=> {:sucess => true, :user_id => user.id}
+    
   end
 
 end

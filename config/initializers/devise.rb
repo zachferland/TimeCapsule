@@ -25,7 +25,7 @@ Devise.setup do |config|
 
   Warden::Manager.before_logout do |user,auth,opts|
     # auth.cookies.delete :signed_in
-    user.reset_authentication_token!
+    # user.reset_authentication_token!
     auth.cookies.delete :login
   end
 

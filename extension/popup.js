@@ -19,7 +19,6 @@ chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
       	var user_id = data.user_id;
       	console.log(user_id);
       });
-      console.log('hello');
 
     }
     else {
