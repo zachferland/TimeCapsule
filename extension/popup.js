@@ -25,8 +25,15 @@ var url = {
 var time = {
 
 	listener: function() {
-		$(".time-button").click(function() { 
-			var timevalue = parseInt($(this).val()); 
+		$(".time-val").click(function() { 
+      // Show saving.... update
+      // $(".progress").animate({height: "100px"}, 500);
+      $(".loading").slideDown('slow');
+
+			var timevalue = parseInt($(this).data("value")); 
+
+      console.log(timevalue);
+
 
 			chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
   				function (cookie) {
@@ -52,7 +59,13 @@ var time = {
 			
 	 						var article_url = 'http://localhost:3000/users/' + user_id + '/articles?auth_token=' + auth_token;
 			
-	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  });
+	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
+              .done(function() { 
+                $(".loading").slideDown('slow');
+                $(".saved").slideDown('slow');
+                window.close();
+              })
+              .fail(function() { alert("error"); });
 			
 						});
 

@@ -1,3 +1,575 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$bgwhite: #fff;
+$bgtan: #f7f5f2;
+$tanborder: #e6e3df;
+$blue: #25a6e9;
+$green: #6acc2a;
+$darktext:  #4a4a4a;
+$lessdarktext: #585858;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p, h1, a, h2 {
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin blue-button($w, $h) {
+  width: $w;
+  height: $h;
+  background-color: $blue;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none !important;
+  padding: 15px;
+  text-transform:  uppercase;
+  font-size: 18px;
+  font-weight: 100px;
+  display: block;
+  text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+}
+
+@mixin white-button($w, $h) {
+  background: transparent;
+  border: 3px solid rgba(255,255,255,0.8);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 13px;
+  text-transform:  uppercase;
+  font-size: 18px;
+  font-weight: 100px;
+}
+
+#button-blue a {
+  background-color: $blue;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  text-transform:  uppercase;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+.header {
+	height: 85px;
+  width: 100%;
+  background-color: $bgtan;
+
+  .logo {
+    width: 315px;
+    height: 50px;
+    margin-top: 23px;
+    float: left;
+  }
+
+  .login {
+    float: right;
+    margin-top: 20px;
+    @include blue-button(65px, 20px);
+    padding: 10px 25px;
+  }
+}
+
+.cover {
+  height: 335px;
+  width: 100%;
+  background: image-url("cover.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 140px;
+
+  .heading {
+    font-size: 56px;
+    color: #fff;
+    margin-top: 23px;
+  }
+
+  .sub-heading {
+    font-size: 24px;
+    color: #fff;
+    margin-top: 40px;
+
+  }
+
+  .buttons {
+    width: 545px;
+    margin: 50px auto 0 auto;
+
+    .download {
+      float: left;
+      @include blue-button(320px, 20px);
+      margin-left: 45px;
+    }
+
+    .learn-more {
+      float: left;
+      @include white-button(320px, 20px);
+
+    }
+
+  }
+}
+
+/*//////////////////////////////////////////////////////*/
+
+.product-demo {
+  height: 840px;
+  width: 100%;
+  background-color: $bgtan;
+  border-bottom: 1px solid $tanborder;
+
+  h2  {
+    font-size: 36px;
+    color: $darktext;
+    padding: 90px 0 40px 130px;
+
+    span {
+      color: $blue;
+      text-transform: uppercase;
+    }
+  }
+
+  .chrome-browser {
+    width: 970px;
+    height: 620px;
+    margin: 0 auto;
+    background: image-url("chrome.png") no-repeat center center;
+    font-family: verdana, arial, helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    .app {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+
+      .url-box {
+        position: absolute;
+        height: 23px;
+        width: 400px;
+        top: 68px;
+        left: 181px;
+        color: #686663;
+        font-size: 13px;
+      }
+
+      .extension-icon {
+        position: absolute;
+        height: 23px;
+        width: 37px;
+        top: 65px;
+        left: 879px;
+        cursor: pointer;
+      }
+
+      .extension {
+        $resizer: 0.75;
+        position: absolute;
+        height: 160px * $resizer;
+        width: 300px * $resizer;
+        background-color: #000;
+        top: 107px;
+        left: 720px;
+        z-index: 201;
+        background-color: #f9f7f5;
+        color: #686663;
+        display: none;
+
+      //         body {
+      //   min-width: 301px;
+      //   min-height: 160px;
+      // }
+
+
+        .progress {
+          width: 101.5%;
+          min-height: 10px * $resizer;
+          background-color: #23adeb;
+          font-size: 18px * $resizer;
+          color: #fff;
+          text-transform:  uppercase;
+          float: left;
+        }
+  
+        .progress p, .progress div {
+          float: left;
+        }
+  
+        .progress .loading {
+          display: none;
+          padding: (15px * $resizer) 0;
+          margin-left: 105px * $resizer;
+  
+        }
+  
+        .progress .loading .spinner {
+          padding-right: 10px * $resizer;
+
+          img {
+            width: 20px;
+          }
+        }
+  
+        .progress .saved .check {
+          padding-right: 10px * $resizer;
+
+          img {
+            width: 20px;
+          }
+        }
+  
+        .progress .loading p {
+          margin-top: 2px * $resizer;
+        }
+  
+        .progress .saved p {
+          margin-top: 2px * $resizer;
+        }
+  
+  
+        .progress .saved {
+          display: none;
+          padding: (15px * $resizer) 0;
+          margin-left: 110px * $resizer;
+        }
+  
+  
+  
+        .label {
+          font-size: 18px * $resizer;
+          text-transform: uppercase;
+          height: 37px * $resizer;
+          width: 105px * $resizer;
+/*          border: 2px solid #eeecea;*/
+          padding-left: 20px * $resizer;
+          float: left;
+          font-weight: 500;
+          padding-top: 18px * $resizer;
+        }
+  
+        .row {
+          height: 55px * $resizer;
+          width: 100%;
+          border-top: (3px * $resizer) solid #eeecea;
+          border-left: (3px * $resizer) solid #eeecea;
+          border-right: (3px * $resizer) solid #eeecea;
+        }
+  
+        .time-val {
+          height: 40px * $resizer;
+          width: 35px * $resizer;
+          border-left: (3px * $resizer) solid #eeecea;
+          float: left;
+          font-size: 20px * $resizer;
+          padding-left: 20px * $resizer;
+          padding-top: 15px * $resizer;
+        }
+  
+        .time-val:hover {
+          background-color: #23adeb;
+          color: #fff;
+          cursor: pointer;
+        }
+  
+      }
+
+      .screen {
+        width: 97.5%;
+        height: 81.4%;
+        position: relative;
+        top: 104px;
+        left: 12px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 100;
+
+        .article-1{
+          width: 100%;
+          height: 149%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 101;
+        }
+
+        .time {
+          position: absolute;
+          background-color: #434446;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 102;
+          display: none;
+          overflow: hidden;
+
+          .time-box {
+            position: absolute;
+            height: 32px;
+            width: 369px;
+            top: 394px;
+            left: 299px;
+            color: #f7f5f2;
+            font-size: 34px;
+            text-transform: uppercase;
+            text-align: center;
+          }
+        }
+
+        .inbox {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 103;
+          display: none;
+
+          .the-email {
+            position: absolute;
+            height: 32px;
+            width: 459px;
+            top: 136px;
+            left: 351px;
+            cursor: pointer;
+          }
+
+        }
+
+        .email {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 104;
+          display: none;
+
+          .read-more {
+            position: absolute;
+            height: 26px;
+            width: 103px;
+            top: 332px;
+            left: 357px;
+            cursor: pointer;
+          }
+
+        }
+
+        .final {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 105;
+          display: none;
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
+
+/*//////////////////////////////////////////////////////*/
+
+.extension-details {
+  height: 400px;
+  width: 100%;
+  background-color: $bgwhite;
+
+  .text {
+    width: 425px;
+    margin-left: 100px;
+    padding: 100px 0;
+    color: $lessdarktext;
+
+    p {
+      font-size: 17px;
+      margin-top: 40px;
+      line-height: 24px;
+    }
+  
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .image {
+    float: right;
+    margin-right: 100px;
+  }
+}
+
+.call-action {
+  height: 110px;
+  widows: 100%;
+  background-color: $bgtan;
+  border-top: 1px solid $tanborder;
+  padding-top: 73px;
+
+  h2 {
+    font-size: 36px;
+    color: $darktext;
+    float: left;
+    margin-left: 196px;
+  }
+
+  .button {
+    @include blue-button(347px, 20px);
+    float: left;
+    margin-left: 45px;
+    margin-top: -15px;
+    padding: 14px 22px;
+
+    .icon {
+      width: 65px;
+      height: 25px;
+      margin-top: -2px;
+      float: left;
+      background: image-url("logo-icon.png") no-repeat center center;
+    }
+
+    .text-on-button {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+.footer {
+  height: 47px;
+  width: 100%;
+  background: #373737 image-url("mountains.png") no-repeat bottom center; 
+  padding-top: 233px;
+
+  p {
+    color: #8c8d8d;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .made-by {
+    float: left;
+    margin-left: 370px;
+  }
+
+  .made-in {
+    float: left;
+    margin-left: 9px;
+  }
+
+  .grey-button {
+    float: left;
+    margin-top: -4px;
+    margin-left: 9px;
+    width: 170px;
+    height: 30px;
+    background-color: #8c8d8d;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+
+    .icon {
+      float: left;
+      height: 30px;
+      width: 30px;
+      background: image-url("twitter-icon.png") no-repeat center center;
+      padding-left: 21px;
+    }
+
+    .text-on-button {
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none !important;
+      color: #2e2e2e !important;
+      float: left;
+      padding-top: 6px;
+      padding-left: 1px;
+
+    }
+  }
+}
+
+
+/*.accent {
+  width: 100%;
+
+  .blue-accent {
+    background-color: $blue;
+    float: left;
+    width: 50%;
+    height: 5px;
+  }
+
+  .green-accent {
+    background-color: $green;
+    float: left;
+    width: 50%;
+    height: 5px;
+  }
+}
+*/
+
+.italian-flag {
+  float: left;
+  margin-left: 10px;
+
+  .part {
+    width: 11px;
+    height: 21px;
+    float: left;
+  }
+  .green {
+    background-color: #05bb1f;
+  }
+
+  .white {
+    background-color: #fff;
+  }
+
+  .red {
+    background-color: #da0707;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
