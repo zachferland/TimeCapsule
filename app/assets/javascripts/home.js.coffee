@@ -9,14 +9,11 @@ $(document).ready ->
     $(".extension").slideDown "slow"
 
   $(".time-val").click ->
-    $(".loading").slideDown('slow').delay(1100);
-    $(".loading").slideUp('slow').delay 100, ->
+    $(".loading").slideDown('slow').delay(1100).slideUp('slow').delay 400000, ->
 
       $(".saved").slideDown('slow').delay 700, ->
 
         $(".extension").slideUp '200', ->
-
-          setTimeout(sample, 5000);
 
           $(".screen").css "overflow-y", "hidden"
           $(".url-box").html  ""
