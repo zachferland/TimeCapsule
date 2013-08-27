@@ -429,7 +429,8 @@ p, h1, a, h2 {
     }
   
     h2 {
-      font-size: 36px;
+      font-size: 34px;
+      font-weight: 600;
     }
   }
 
@@ -447,11 +448,17 @@ p, h1, a, h2 {
   border-top: 1px solid $tanborder;
   padding-top: 73px;
 
+  .center {
+    width: 756px;
+    margin: 0 auto;
+    height: 50px;
+    margin-top: 5px;
+  }
+
   h2 {
     color: $darktext;
     font-size: 28px;
     float: left;
-    margin-left: 178px;
     font-weight: 400;
   }
 
@@ -481,32 +488,37 @@ p, h1, a, h2 {
 .footer {
   height: 47px;
   width: 100%;
-  background: #373737 image-url("mountains.png") no-repeat bottom center; 
+  background: #333d48 image-url("mountains-2.png") no-repeat bottom center; 
   padding-top: 233px;
 
   p {
-    color: #8c8d8d;
+    color: #a2acb8;;
     font-size: 14px;
     margin-top: 2px;
   }
 
+  .by {
+    width: 353px;
+    height: 20px;
+    margin: 10px auto 0 auto;
+  }
+
   .made-by {
     float: left;
-    margin-left: 370px;
   }
 
   .made-in {
     float: left;
-    margin-left: 9px;
+    margin-left: 10px;
   }
 
   .grey-button {
     float: left;
     margin-top: -4px;
-    margin-left: 9px;
-    width: 156px;
+    margin-left: 10px;
+    width: 140px;
     height: 30px;
-    background-color: #8c8d8d;
+    background-color: #747f8a;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -520,20 +532,19 @@ p, h1, a, h2 {
       height: 30px;
       width: 30px;
       background: image-url("twitter-icon.png") no-repeat center center;
-      padding-left: 21px;
+      padding-left: 12px;
     }
 
     .text-on-button {
       font-size: 14px;
       font-weight: bold;
       text-decoration: none !important;
-      color: #2e2e2e !important;
       float: left;
       padding-top: 6px;
       padding-left: 1px;
 
       a {
-        color: #262626;
+        color: #242c35;
       }
 
     }
