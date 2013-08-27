@@ -3,8 +3,8 @@ $bgtan: #f7f5f2;
 $tanborder: #e6e3df;
 $blue: #25a6e9;
 $green: #6acc2a;
-$darktext:  #4a4a4a;
-$lessdarktext: #585858;
+$darktext:  #47525c;
+$lessdarktext: #57616b;
 
 * {
   padding: 0;
@@ -23,12 +23,17 @@ p, h1, a, h2 {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-decoration: none !important;
-  padding: 15px;
+  padding: 16px;
   text-transform:  uppercase;
-  font-size: 18px;
-  font-weight: 100px;
+  font-size: 15px;
+  font-weight: 600;
   display: block;
   text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: #40b8f6;
+  }
 }
 
 @mixin white-button($w, $h) {
@@ -38,10 +43,14 @@ p, h1, a, h2 {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   color: #fff;
-  padding: 13px;
+  padding: 13px 29px 13px 29px;
   text-transform:  uppercase;
-  font-size: 18px;
-  font-weight: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 #button-blue a {
@@ -75,15 +84,16 @@ p, h1, a, h2 {
   .login {
     float: right;
     margin-top: 20px;
-    @include blue-button(65px, 20px);
+    @include blue-button(65px, 18px);
     padding: 10px 25px;
+    text-align: center;
   }
 }
 
 .cover {
   height: 335px;
   width: 100%;
-  background: image-url("cover.png") no-repeat center center fixed; 
+  background: image-url("bg-dark.png") no-repeat center top fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -94,23 +104,25 @@ p, h1, a, h2 {
     font-size: 56px;
     color: #fff;
     margin-top: 23px;
+    text-align: center;
   }
 
   .sub-heading {
-    font-size: 24px;
+    font-size: 23px;
     color: #fff;
     margin-top: 40px;
-
+    text-align: center;
   }
 
   .buttons {
-    width: 545px;
+    width: 556px;
     margin: 50px auto 0 auto;
 
     .download {
       float: left;
-      @include blue-button(320px, 20px);
+      @include blue-button(320px, 18px);
       margin-left: 45px;
+      text-align: center;
     }
 
     .learn-more {
@@ -125,15 +137,15 @@ p, h1, a, h2 {
 /*//////////////////////////////////////////////////////*/
 
 .product-demo {
-  height: 840px;
+  height: 860px;
   width: 100%;
   background-color: $bgtan;
   border-bottom: 1px solid $tanborder;
 
   h2  {
-    font-size: 36px;
-    color: $darktext;
-    padding: 90px 0 40px 130px;
+    font-size: 31px;
+    color: #47525c;
+    padding: 90px 0 21px 131px;
 
     span {
       color: $blue;
@@ -145,7 +157,7 @@ p, h1, a, h2 {
     width: 970px;
     height: 620px;
     margin: 0 auto;
-    background: image-url("chrome.png") no-repeat center center;
+    // background: image-url("chrome.png") no-repeat center center;
     font-family: verdana, arial, helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
 
@@ -327,6 +339,14 @@ p, h1, a, h2 {
             text-transform: uppercase;
             text-align: center;
           }
+
+          .place-loader {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 98px;
+            left: 368px;
+          }
         }
 
         .inbox {
@@ -397,9 +417,10 @@ p, h1, a, h2 {
 
   .text {
     width: 425px;
-    margin-left: 100px;
-    padding: 100px 0;
+    margin-left: 130px;
+    padding: 122px 0;
     color: $lessdarktext;
+    float: left;
 
     p {
       font-size: 17px;
@@ -414,22 +435,24 @@ p, h1, a, h2 {
 
   .image {
     float: right;
-    margin-right: 100px;
+    margin-right: 130px;
+    margin-top: 81px;
   }
 }
 
 .call-action {
-  height: 110px;
-  widows: 100%;
+  height: 100px;
+  width: 100%;
   background-color: $bgtan;
   border-top: 1px solid $tanborder;
   padding-top: 73px;
 
   h2 {
-    font-size: 36px;
     color: $darktext;
+    font-size: 28px;
     float: left;
-    margin-left: 196px;
+    margin-left: 178px;
+    font-weight: 400;
   }
 
   .button {
@@ -449,7 +472,8 @@ p, h1, a, h2 {
 
     .text-on-button {
       float: left;
-      margin-left: 15px;
+      margin-left: 44px;
+      margin-top: 1px;
     }
   }
 }
@@ -480,7 +504,7 @@ p, h1, a, h2 {
     float: left;
     margin-top: -4px;
     margin-left: 9px;
-    width: 170px;
+    width: 156px;
     height: 30px;
     background-color: #8c8d8d;
     -moz-border-radius: 3px;
@@ -507,6 +531,10 @@ p, h1, a, h2 {
       float: left;
       padding-top: 6px;
       padding-left: 1px;
+
+      a {
+        color: #262626;
+      }
 
     }
   }

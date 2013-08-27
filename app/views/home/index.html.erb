@@ -14,7 +14,7 @@
 
 <div class="cover">
 	<div class="wrapper">
-		<h1 class="heading">Send Yourself the Articles You Like Most</h1>
+		<h1 class="heading">Send Your Favorite Articles to the Future</h1>
 		<h2 class="sub-heading">A simple chrome extension that makes it easy to remember the articles you want to read again.</h2>
 		<div class="buttons">
 			<div class="learn-more"> <%= link_to "Learn More", new_user_session_path %> </div>
@@ -25,7 +25,7 @@
 
 <div class="product-demo">
 	<div class="wrapper">
-		<h2>It is as easy as ... <span> Read </span> </h2>
+		<h2>It is as easy as ... <span> </span> </h2>
 		
 <!-- /////////////////////////////////////////////////////////// -->
 
@@ -38,7 +38,8 @@
 
 
 <div class="chrome-browser">
-	<div class="app">
+<video autobuffer="autobuffer" autoplay="autoplay" loop="true" height="650px" src="/assets/tc_product_demo.mov"</video>
+	<!-- <div class="app">
 		<div class="url-box">http://somearticle.com/</div>
     	<div class="extension-icon"></div>
     	<div class="extension">
@@ -86,7 +87,11 @@
     	    <%= image_tag "chrome-article.png" %>
     	  </div>
     	  <div class="time">
-    	  	<div class="time-box"></div>
+    	  	<div class="place-loader">
+    	  		<div id="loaderImage"></div>
+    	  	</div>
+    	  	<div class="time-box">1 Month later</div>
+    	  	<span id="timer">hello</span>
     	  </div>
 
     	  <div class="inbox">
@@ -104,7 +109,7 @@
     	  </div>
 				
 		</div>
-	</div>
+	</div> -->
 </div>
 
 
@@ -128,13 +133,13 @@
 			<h2>The Extension</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisin elit. Mauris euismod, sapien ac bibendum mollis, nisi dui tempus turpis, non aliquam augue massa quis nunc. Aenean vitae est erat. Suspendisse cursus eros lacus. </p>
 		</div>
-		<div class="image"></div>
+		<div class="image"><%= image_tag "extension.png" %></div>
 	</div>
 </div>
 
 <div class="call-action">
 	<div class="wrapper">
-		<h2>Like what you see?</h2>
+		<h2>Do you like what you see?</h2>
 		<div class="button">
 			<span class="icon"></span>
 			<span class="text-on-button"><%= link_to "Start using TimeCapsule", new_user_session_path %></span>
@@ -163,3 +168,72 @@
 	<div class="blue-accent"></div>
 	<div class="green-accent"></div>
 </div> -->
+
+
+
+
+
+<script type="text/javascript">
+	var cSpeed=16;
+	var cWidth=220;
+	var cHeight=220;
+	var cTotalFrames=18;
+	var cFrameWidth=220;
+	var cImageSrc= 'assets/sprites.gif';
+	
+	var cImageTimeout=false;
+	var cIndex=0;
+	var cXpos=0;
+	var cPreloaderTimeout=false;
+	var SECONDS_BETWEEN_FRAMES=0;
+	
+	function startAnimation(){
+		
+		document.getElementById('loaderImage').style.backgroundImage='url('+cImageSrc+')';
+		document.getElementById('loaderImage').style.width=cWidth+'px';
+		document.getElementById('loaderImage').style.height=cHeight+'px';
+		
+		//FPS = Math.round(100/(maxSpeed+2-speed));
+		FPS = Math.round(100/cSpeed);
+		SECONDS_BETWEEN_FRAMES = 1 / FPS;
+		
+		cPreloaderTimeout=setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES/1000);
+		
+	}
+	
+	function continueAnimation(){
+		
+		cXpos += cFrameWidth;
+		//increase the index so we know which frame of our animation we are currently on
+		cIndex += 1;
+		 
+		//if our cIndex is higher than our total number of frames, we're at the end and should restart
+		if (cIndex >= cTotalFrames) {
+			cXpos =0;
+			cIndex=0;
+		}
+		
+		if(document.getElementById('loaderImage'))
+			document.getElementById('loaderImage').style.backgroundPosition=(-cXpos)+'px 0';
+		
+		cPreloaderTimeout=setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES*1000);
+	}
+	
+	function stopAnimation(){//stops animation
+		clearTimeout(cPreloaderTimeout);
+		cPreloaderTimeout=false;
+	}
+	
+	function imageLoader(s, fun)//Pre-loads the sprites image
+	{
+		clearTimeout(cImageTimeout);
+		cImageTimeout=0;
+		genImage = new Image();
+		genImage.onload=function (){cImageTimeout=setTimeout(fun, 0)};
+		genImage.onerror=new Function('alert(\'Could not load the image\')');
+		genImage.src=s;
+	}
+	
+	//The following code starts the animation
+	new imageLoader(cImageSrc, 'startAnimation()');
+</script>

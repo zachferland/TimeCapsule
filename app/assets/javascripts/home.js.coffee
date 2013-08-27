@@ -11,23 +11,65 @@ $(document).ready ->
   $(".time-val").click ->
     $(".loading").slideDown('slow').delay(1100).slideUp('slow').delay 400000, ->
 
-      $(".saved").slideDown('slow').delay 700, ->
+      setTimeout(
+        $(".saved").slideDown('slow'); 
 
-        $(".extension").slideUp '200', ->
+      # $(".saved").slideDown('slow').delay 700, ->
 
-          $(".screen").css "overflow-y", "hidden"
-          $(".url-box").html  ""
+        # setTimeout( 
+        #   $(".extension").slideUp '200'
 
-          $(".time").show(1000).delay 3000, ->
+        #   $(".screen").css "overflow-y", "hidden"
+        #   $(".url-box").html  ""
 
-            $(".time-box").html("hello").delay 1500, ->
+        #   setTimeout( 
+        #     $(".time").show(1000)
+        #     # $(".time").show(1000).delay 3000, ->
 
-              $(".time-box").html("2 months later").delay 2000, ->
-  
-                $(".time-box").html("3 months later").delay 1500, ->
-  
-                  $(".inbox").show 'slow'
-                  $(".url-box").html  "http://yourinbox.com"
+        #     setTimeout(  
+        #       $(".time-box").html("hello")
+
+        #       setTimeout(  
+        #         $(".time-box").html("2 months later")
+
+        #         setTimeout(  
+        #           $(".time-box").html("3 months later")
+
+        #           $(".inbox").show 'slow'
+        #           $(".url-box").html  "http://yourinbox.com"
+
+        #         , 5000);
+        #       , 5000);
+        #     , 5000);
+        #   , 5000);
+        # , 5000);
+      , 5000);
+
+
+  $(".article-1").click ->
+    $(".extension").slideUp '300'
+
+    $(".screen").css "overflow-y", "hidden"
+    $(".url-box").html("")
+
+    $(".time").delay(1000).show(1000)
+
+    setTimeout (-> 
+      $(".time-box").html("1 month later")
+      setTimeout (-> 
+        $(".time-box").html("2 months later")
+        setTimeout (-> 
+          $(".time-box").html("3 months later")
+          setTimeout (-> 
+            $(".inbox").show 'slow' 
+            $(".url-box").html "http://yourinbox.com"
+          ), 1600
+        ), 800
+      ), 800
+    ), 1600
+
+    
+
 
 
   $(".the-email").click ->

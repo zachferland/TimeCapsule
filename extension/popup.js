@@ -61,9 +61,10 @@ var time = {
 			
 	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
               .done(function() { 
-                $(".loading").slideDown('slow');
-                $(".saved").slideDown('slow');
-                window.close();
+                $(".loading").slideUp('slow');
+                setTimeout(function(){$(".saved").slideDown('slow');},500);
+                setTimeout(function(){window.close();},1900);
+              
               })
               .fail(function() { alert("error"); });
 			
