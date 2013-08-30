@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Timecapsule</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "sign_up", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <script type="text/javascript" src="//use.typekit.net/ynz0vfm.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -12,7 +12,6 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
 <%= yield %>
 

@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "TCapsule",
-  "description": "Send articles to your future self",
-  "version": "1.0",
+  "name": "Timecapsule.io",
+  "description": "Send articles to the future. Timecapsule is the best way to remember the articles you want to read again",
+  "version": "1.0.0",
 
   "browser_action": {
     "default_icon": "icon.png",

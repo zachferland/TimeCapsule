@@ -3,6 +3,8 @@ Timecapsule::Application.routes.draw do
 
   root :to => 'home#index'
 
+  get "chrome" => 'home#chrome'
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", :registrations => 'registrations', :sessions => "sessions"}
 
   resources :users do 

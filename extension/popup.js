@@ -25,7 +25,8 @@ var url = {
 var time = {
 
 	listener: function() {
-		$(".time-val").click(function() { 
+    //allows only one click, if rails i have to add it again
+		$(".time-val").one('click', function() { 
       // Show saving.... update
       // $(".progress").animate({height: "100px"}, 500);
       $(".loading").slideDown('slow');
@@ -63,7 +64,7 @@ var time = {
               .done(function() { 
                 $(".loading").slideUp('slow');
                 setTimeout(function(){$(".saved").slideDown('slow');},500);
-                setTimeout(function(){window.close();},1900);
+                setTimeout(function(){window.close();},2100);
               
               })
               .fail(function() { alert("error"); });
@@ -94,14 +95,36 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
       if (cookie) {
         //user logged in
         console.log('You are logged in');
+
+        $("#app").show();
 		
-		time.listener();
+		    time.listener();
 
       } else {
         //user NOT logged in    
         console.log('You are not logged in');
-        var div = document.getElementById('url');
-        div.innerHTML = "You are not logged in";
+
+        $("#login").show();
+
+
+
+        //user NOT logged in   
+       $(".twitter-button").click(function() { 
+          var props = {
+              url: "http://localhost:3000/users/auth/twitter",
+              focused: false,
+              tabId: 1,
+              height: 300,
+              width: 300,
+              type: "normal"
+          }
+          
+          chrome.windows.create(props, function(windowObj){
+              console.log("Here's the window object.");
+              console.dir(windowObj);
+          });
+
+        });
        
       }
   });

@@ -1,20 +1,75 @@
-<h2>Sign up</h2>
+<div class="sign-up">
+<div class="page-wrap">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="header">
+  <div class="wrapper">
+    <div class="logo">
+      <%= image_tag "logo-darkbg.png" %>
+    </div>
+    <div class="login">
+      <%= link_to "Login", new_user_session_path %>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="main">
+  <div class="wrapper">
+    <div class="space"></div>
+    <div class="half"> 
+      <h1>Signup For Free</h1>
+      <h4>A simple chrome extension that makes it easy to remember the articles you want to read again.</h4>
+      <div class="return"> <%= link_to "<  Return to home page", root_path %> </div>
+    </div>
+    <div class="half">
+      <div class="twitter-button">
+        <span class="icon"></span>
+        <span class="text-on-button"><%= link_to "Signup with Twitter", user_omniauth_authorize_path(:twitter) %></span>
+      </div>  
+    </div>
+  </div>
+  
+</div>
 
-  <% if f.object.password_required? %>
-	  <div><%= f.label :password %><br />
-	  <%= f.password_field :password %></div>
 
-	  <div><%= f.label :password_confirmation %><br />
-	  <%= f.password_field :password_confirmation %></div>
-  <% end %>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+<div class="mountain-block">
+    
+</div>
 
-<%= render "devise/shared/links" %>
+</div>
+
+  <div class="footer">
+    <div class="wrapper">
+
+      <div class="signature">
+        <div class="by">
+          <p class="made-by">An app by</p>
+          <div class="grey-button">
+            <div class="icon"></div>
+            <div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
+          </div>
+          <p class="made-in"> in Trento, Italy</p>
+          <div class="italian-flag">
+            <div class="green part"></div>
+            <div class="white part"></div>
+            <div class="red part"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

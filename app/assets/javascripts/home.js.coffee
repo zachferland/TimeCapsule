@@ -5,6 +5,7 @@
 
 
 $(document).ready ->
+  console.log('hello');
   $(".extension-icon").click ->
     $(".extension").slideDown "slow"
 
