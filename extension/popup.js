@@ -110,19 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
 
         //user NOT logged in   
        $(".twitter-button").click(function() { 
-          var props = {
-              url: "http://localhost:3000/users/auth/twitter",
-              focused: false,
-              tabId: 1,
-              height: 300,
-              width: 300,
-              type: "normal"
-          }
-          
-          chrome.windows.create(props, function(windowObj){
-              console.log("Here's the window object.");
-              console.dir(windowObj);
-          });
+
+          chrome.tabs.create({url: "http://localhost:3000/users/auth/twitter"});
 
         });
        

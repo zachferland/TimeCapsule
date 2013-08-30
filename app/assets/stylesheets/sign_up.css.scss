@@ -24,18 +24,6 @@ $blue: #25a6e9;
   }
 }
 
-html, body {
-  height: 100%;
-}
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -160px; 
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
 
 
 
@@ -44,10 +32,6 @@ html, body {
   width: 100%;
   height: 900px;
 
-  .footer, a:after {
-    /* .push must be the same height as footer */
-    height: 160px; 
-  }
 
 	.header {
 		  height: 85px;
@@ -151,11 +135,12 @@ html, body {
 
   .mountain-block {
     background: #333d48 image-url("mountains-2.png") repeat-x bottom center;
-    height: 280px;
+    height: 260px;
   }
 
   .footer {
     width: 100%;
+    height: 160px;
     padding-top: 1px;
     position: relative;
     background: image-url("mount-bg.png") repeat center center;
