@@ -16,6 +16,7 @@ $blue: #25a6e9;
   font-size: 15px;
   font-weight: 600;
   display: block;
+  color: #fff;
   text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
   cursor: pointer;
 
@@ -27,10 +28,9 @@ $blue: #25a6e9;
 
 
 
-.sign-up{
+.dark{
 	background-color: #333d48;
   width: 100%;
-  height: 900px;
 
 
 	.header {
@@ -45,12 +45,13 @@ $blue: #25a6e9;
   	  float: left;
   	}
 	
-  	.login {
+  	.login a{
   	  float: right;
   	  margin-top: 30px;
   	  @include blue-button(65px, 18px);
   	  padding: 10px 25px;
   	  text-align: center;
+      border: none;
   	}
   }
 
@@ -129,6 +130,57 @@ $blue: #25a6e9;
       margin: 12px 0 0 20px;
       float: left;
       display: block;
+    }
+
+    .email-form {
+      width: 552px;
+      margin: 0 auto;
+
+      h4 {
+        width: 100%;
+      }
+    }
+
+    #email-field {
+      width: 340px;
+      float: left;
+
+      input{
+        height: 50px;
+        width: 320px;
+        padding-left: 25px;
+        float: left;
+        margin-top: 30px;
+        border: none;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        font-size: 15px;
+        color: #57616b;
+
+        &:focus {
+          outline-width: 0;
+        }
+
+      }
+    }
+
+    #email-button {
+      float: left;
+
+      input[type=submit] {
+        float: left;
+        border: none;
+        box-sizing: inherit;
+        align-items: stretch;
+        text-align: center;
+        margin-top: 30px;
+        @include blue-button(180px, 18px);
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        -webkit-appearance: none;
+        font: 15px "proxima-nova", verdana, arial, helvetica, sans-serif;
+
+      }
     }
 
   }

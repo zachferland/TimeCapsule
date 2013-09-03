@@ -81,7 +81,7 @@ p, h1, a, h2 {
     float: left;
   }
 
-  .login {
+  .login a {
     float: right;
     margin-top: 20px;
     @include blue-button(65px, 18px);
@@ -118,14 +118,14 @@ p, h1, a, h2 {
     width: 556px;
     margin: 50px auto 0 auto;
 
-    .download {
+    .download a {
       float: left;
       @include blue-button(320px, 18px);
       margin-left: 45px;
       text-align: center;
     }
 
-    .learn-more {
+    .learn-more a {
       float: left;
       @include white-button(320px, 20px);
 

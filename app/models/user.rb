@@ -25,7 +25,7 @@ end
 
 def self.new_with_session(params, session)
   if session["devise.user_attributes"]
-    new(session["devise.user_attributes"], without_protection: true) do |user|
+    new(session["devise.user_attributes"]) do |user|
       user.attributes = params
       user.valid?
     end
@@ -51,6 +51,10 @@ def twitter
     @twitter ||= Twitter::Client.new(oauth_token: oauth_token, oauth_token_secret: oauth_secret)
   end
 end
+
+def user_params
+    params.require(:article).permit(:email, :password, :password_confirmation, :remember_me, :name)
+  end
 
 
 end

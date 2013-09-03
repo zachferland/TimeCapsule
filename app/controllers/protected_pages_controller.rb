@@ -1,10 +1,5 @@
-class HomeController < ApplicationController
-  def index
-  end
-
-  def chrome
-
-  end
+class ProtectedPagesController < ApplicationController
+  before_filter :authenticate_user!
 
   def intro 
   	@user = current_user
@@ -13,6 +8,6 @@ class HomeController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @user }
     end
-
   end 
+
 end

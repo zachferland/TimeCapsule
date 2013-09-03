@@ -5,13 +5,19 @@ Timecapsule::Application.routes.draw do
 
   get "chrome" => 'home#chrome'
 
+  get "intro" => 'protected_pages#intro'
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks", :registrations => 'registrations', :sessions => "sessions"}
 
   resources :users do 
     resources :articles
   end
 
-post 'getuser/:authentication_token' => 'users#get_id'
+  post 'getuser/:authentication_token' => 'users#get_id'
+
+# devise_for :users do
+#    get 'user' => "home#intro", :as => :user_root
+# end
 
 
   # The priority is based upon order of creation:

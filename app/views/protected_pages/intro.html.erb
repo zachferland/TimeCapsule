@@ -1,0 +1,75 @@
+<div class="dark">
+<div class="page-wrap">
+
+<div class="header">
+  <div class="wrapper">
+    <div class="logo">
+      <%= link_to image_tag("logo-darkbg.png"), root_path %>
+    </div>
+    <div class="login">
+      <%= link_to "Login", new_user_session_path %>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="wrapper">
+    
+<%= @user.email %>
+
+  </div>
+</div>
+
+
+
+<div class="mountain-block">
+
+  <%= form_for @user, :url => registration_path(@user), :html => { :method => :put } do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="wrapper">
+
+        <div class="by">
+          <p class="made-by">An app by</p>
+          <div class="grey-button">
+            <div class="icon"></div>
+            <div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
+          </div>
+          <p class="made-in"> in Trento, Italy</p>
+          <div class="italian-flag">
+            <div class="green part"></div>
+            <div class="white part"></div>
+            <div class="red part"></div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+
+
+</div>
