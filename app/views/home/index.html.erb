@@ -143,9 +143,11 @@
 	<div class="wrapper">
 		<div class="center">
 			<h2>Do you like what you see?</h2>
-			<div class="button">
-				<span class="icon"></span>
-				<span class="text-on-button"><%= link_to "Start using TimeCapsule", new_user_registration_path %></span>
+			<div class="button"> 
+				<%= link_to new_user_registration_path do %>
+					<span class="icon"></span>
+					<span class="text-on-button">Start using TimeCapsule</span>
+				<% end %>
 			</div> 
 		</div>
 	</div>

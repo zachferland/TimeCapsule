@@ -1,17 +1,73 @@
-<h2>Sign in</h2>
+<div class="dark">
+<div class="page-wrap">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="header">
+  <div class="wrapper">
+    <div class="logo">
+      <%= link_to image_tag("logo-darkbg.png"), root_path %>
+    </div>
+    <div class="login">
+      <%= link_to "Signup", new_user_registration_path %>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<div class="main">
+  <div class="wrapper">
+  
+      <div class="space"></div>
+      <div class="half"> 
+        <h1>Sign In</h1>
+        <h4>A simple chrome extension that makes it easy to remember the articles you want to read again.</h4>
+        <div class="return"> <%= link_to "<  Return to home page", root_path %> </div>
+      </div>
+      <div class="half">
+        <div class="twitter-button">
+          <span class="icon"></span>
+          <span class="text-on-button">
+            <%= link_to "Signin with Twitter", user_omniauth_authorize_path(:twitter, :display => 'page') %>
+          </span>
+        </div>  
+      </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  </div>
+</div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+
+
+
+<div class="mountain-block">
+    
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="wrapper">
+
+        <div class="by">
+          <p class="made-by">An app by</p>
+          <div class="grey-button">
+            <div class="icon"></div>
+            <div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
+          </div>
+          <p class="made-in"> in Trento, Italy</p>
+          <div class="italian-flag">
+            <div class="green part"></div>
+            <div class="white part"></div>
+            <div class="red part"></div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+
+
+</div>

@@ -461,7 +461,7 @@ p, h1, a, h2 {
     font-weight: 400;
   }
 
-  .button {
+  .button a{
     @include blue-button(347px, 20px);
     float: left;
     margin-left: 45px;

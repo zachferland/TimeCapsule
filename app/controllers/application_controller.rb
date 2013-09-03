@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     intro_path
   end
 
+  def after_sign_in_path_for(resource)
+    intro_path
+  end
+
 end

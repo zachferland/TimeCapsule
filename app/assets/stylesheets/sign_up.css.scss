@@ -96,7 +96,7 @@ $blue: #25a6e9;
       height: 400px;
     }
 
-    .twitter-button {
+    .twitter-button a {
       height: 40px;
       width: 240px;
       background-color: #25a6e9;
@@ -107,29 +107,29 @@ $blue: #25a6e9;
       border-radius: 5px;
       overflow: hidden;
       cursor: pointer;
-    }
 
-    .twitter-button:hover {
-      background-color: #40b8f6;
-    }
+      &:hover {
+        background-color: #40b8f6;
+      }
 
-    .twitter-button .icon {
-      background-image: url(twitter-icon-light.png);
-      height: 40px;
-      width: 50px;
-      float: left;
-    }
+      .icon {
+        background-image: url(twitter-icon-light.png);
+        height: 40px;
+        width: 50px;
+        float: left;
+      }
 
-    .twitter-button .text-on-button {
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
-      margin: 12px 0 0 20px;
-      float: left;
-      display: block;
+      .text-on-button {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+        margin: 12px 0 0 20px;
+        float: left;
+        display: block;
+      }
     }
 
     .email-form {
