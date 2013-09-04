@@ -23,10 +23,12 @@
       </div>
       <div class="half">
         <div class="twitter-button">
-          <span class="icon"></span>
-          <span class="text-on-button">
-            <%= link_to "Signin with Twitter", user_omniauth_authorize_path(:twitter, :display => 'page') %>
-          </span>
+          <%= link_to user_omniauth_authorize_path(:twitter, :display => 'page') do %>
+            <span class="icon"></span>
+            <span class="text-on-button">
+              Signin with Twitter
+            </span>
+          <% end %>
         </div>  
       </div>
 

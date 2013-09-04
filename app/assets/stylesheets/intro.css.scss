@@ -1,0 +1,210 @@
+$blue: #25a6e9;
+
+@mixin blue-button($w, $h) {
+  width: $w;
+  height: $h;
+  background-color: $blue;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none !important;
+  padding: 16px;
+  text-transform:  uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  color: #fff;
+  text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: #40b8f6;
+  }
+}
+
+
+.dark .intro-page {
+
+  .small-wrapper {
+    width: 920px;
+    margin: 0 auto;
+  }
+
+	.main {
+		margin-top: 150px;
+		height: 1800px;
+	}
+
+	.download {
+		width: 100%;
+		height: 250px;
+
+		.text {
+			float: left;
+			width: 550px;
+
+			h4 {
+				width: 100%;
+			}
+		}
+	}
+
+	.download-button a {
+      height: 50px;
+      width: 330px;
+      background-color: #25a6e9;
+      float: left;
+      margin: 40px 0;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #40b8f6;
+      }
+
+      .icon {
+        background-image: url(chrome-icon.png);
+        height: 50px;
+        width: 70px;
+        float: left;
+      }
+
+      .text-on-button {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+        margin: 16px 0 0 32px;
+        float: left;
+        display: block;
+      }
+    }
+
+    .use {
+    	width: 100%;
+    	height: 1210px;
+    	background-color: #424f5b;
+
+      h1 {
+        padding-top: 120px;
+      }
+
+    	.step {
+        width: 100%;
+        height: 300px;
+
+    		.text, .image {
+    			float: left;
+    		}
+	
+    		.text {
+    			width: 50%;
+          color: #fff;
+          font-size: 17px;
+          line-height: 24px;
+          font-weight: 300;
+          margin-top: 85px;
+    		}
+	
+    		.image {
+    			width: 350px;
+          height: 200px;
+          margin-top: -65px;
+    		}
+
+        .pad-left {
+          padding-left: 100px;
+        }
+
+        .pad-right {
+          padding-right: 100px;
+        }
+    	}
+    }
+
+    .forms {
+
+      padding-top: 150px;
+
+      .email-form {
+        width: 552px;
+        margin: 0;
+        height: 300px;
+        float: left;
+      }
+
+      .feedback {
+        padding-left: 135px;
+        float: left;
+
+        h4 {
+          width: 100%;
+        }
+
+
+        .feedback-button a {
+          height: 50px;
+          width: 270px;
+          background-color: #25a6e9;
+          float: left;
+          margin: 40px 0;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          overflow: hidden;
+          cursor: pointer;
+          margin-top: 30px;
+  
+          &:hover {
+            background-color: #40b8f6;
+          }
+    
+          .icon {
+            background-image: url(feedback-icon.png);
+            height: 50px;
+            width: 70px;
+            float: left;
+          }
+    
+          .text-on-button {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+            margin: 16px 0 0 32px;
+            float: left;
+            display: block;
+          }
+        }
+
+
+
+      }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

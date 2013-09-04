@@ -14,16 +14,8 @@
 
 <div class="main">
   <div class="wrapper">
-    
-<%= @user.email %>
-
-  </div>
-</div>
-
-
-
-<div class="mountain-block">
-
+      
+    <div class="email-form">
   <%= form_for @user, :url => registration_path(@user), :html => { :method => :put } do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -37,14 +29,24 @@
       </div>
     <% end %>
   
-    <div class="field">
-      <%= f.label :email %><br />
+    <div id="email-field">
       <%= f.text_field :email %>
     </div>
-    <div class="actions">
-      <%= f.submit %>
+
+    <div id="email-button">
+      <%= f.submit "Update Email" %>
     </div>
   <% end %>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+<div class="mountain-block">
 
 </div>
 

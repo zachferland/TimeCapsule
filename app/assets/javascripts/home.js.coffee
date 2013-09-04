@@ -51,7 +51,7 @@ $(document).ready ->
     $(".extension").slideUp '300'
 
     $(".screen").css "overflow-y", "hidden"
-    $(".url-box").html("")
+    # $(".url-box").html("")
 
     $(".time").delay(1000).show(1000)
 
@@ -64,6 +64,8 @@ $(document).ready ->
           setTimeout (-> 
             $(".inbox").show 'slow' 
             $(".url-box").html "http://yourinbox.com"
+            $(".tab-box .text").html "Inbox - 1 New Message"
+            $(".tab-box .icon").html "<img src='assets/mail-icon.png' height='23' width='23' />"
           ), 1600
         ), 800
       ), 800
@@ -76,9 +78,12 @@ $(document).ready ->
   $(".the-email").click ->
     $(".email").show 'slow'
     $(".url-box").html  "http://yourinbox.com?email=HkdhjgHCMWIM81La19LJjs"
+    $(".tab-box .text").html "Inbox - TimeCapsule.io"
 
 
   $(".read-more").click ->
     $(".final").show 'slow'
     $(".url-box").html  "http://somearticle.com"
+    $(".tab-box .text").html "Blog - Such a Rush?"
+    $(".tab-box .icon").html "<img src='assets/pen-icon.png' height='23' width='23' />"
 

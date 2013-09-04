@@ -137,7 +137,7 @@ p, h1, a, h2 {
 /*//////////////////////////////////////////////////////*/
 
 .product-demo {
-  height: 860px;
+  height: 880px;
   width: 100%;
   background-color: $bgtan;
   border-bottom: 1px solid $tanborder;
@@ -178,6 +178,29 @@ p, h1, a, h2 {
         font-size: 13px;
       }
 
+      .tab-box {
+        position: absolute;
+        height: 23px;
+        width: 250px;
+        top: 25px;
+        left: 135px;
+        color: #686663;
+        font-size: 13px;
+
+        .icon {
+          float: left;
+          height: 23px;
+          width: 23px;
+
+
+        }
+        .text {
+          float: left;
+          margin-top: 3px;
+          margin-left: 14px;
+        }
+      }
+
       .extension-icon {
         position: absolute;
         height: 23px;
@@ -190,7 +213,7 @@ p, h1, a, h2 {
       .extension {
         $resizer: 0.75;
         position: absolute;
-        height: 160px * $resizer;
+        height: 133px;
         width: 300px * $resizer;
         background-color: #000;
         top: 107px;
@@ -319,8 +342,8 @@ p, h1, a, h2 {
 
         .time {
           position: absolute;
-          background-color: #434446;
-          height: 100%;
+          background-color: #444644;
+          height: 700px;
           width: 100%;
           top: 0;
           left: 0;
@@ -411,14 +434,14 @@ p, h1, a, h2 {
 /*//////////////////////////////////////////////////////*/
 
 .extension-details {
-  height: 400px;
+  height: 475px;
   width: 100%;
   background-color: $bgwhite;
 
   .text {
     width: 425px;
     margin-left: 130px;
-    padding: 122px 0;
+    padding: 166px 0;
     color: $lessdarktext;
     float: left;
 
@@ -437,7 +460,7 @@ p, h1, a, h2 {
   .image {
     float: right;
     margin-right: 130px;
-    margin-top: 54px;  }
+    margin-top: 86px;  }
 }
 
 .call-action {

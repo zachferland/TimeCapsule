@@ -1,4 +1,5 @@
 <div class="dark">
+<div class="intro-page">
 <div class="page-wrap">
 
 <div class="header">
@@ -7,44 +8,96 @@
       <%= link_to image_tag("logo-darkbg.png"), root_path %>
     </div>
     <div class="login">
-      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </div>
 
 <div class="main">
-  <div class="wrapper">
-    
-<%= @user.email %>
+  <div class="small-wrapper">
 
+    <div class="download">
+      <div class="text">
+      <h1>Download Extension</h1>
+      <h4>The extension is available for free through the Chrome Web Store</h4>
+      </div>
+      <div class="download-button">
+        <%= link_to "http://facebook.com" do %>
+          <span class="icon"></span>
+          <span class="text-on-button">Download Extension</span>
+        <%end%>
+      </div>
+    </div>
+  </div>
+
+  <div class="use">
+    <div class="small-wrapper">
+      <h1>Simple to Use</h1>
+      <div class="step">
+        <div class="text">When you read an article that you would like to read someday again, simply click on the timecapsule extension in your Chrome browswer.</div>
+        <div class="image pad-left"><%= image_tag "use_one.png" %></div>
+      </div>
+      <div class="step">
+        <div class="image pad-right"><%= image_tag "use_two.png" %></div>
+        <div class="text">Select the time from now that you would like to read it again. The options are 1 week, 2 weeks, 3 weeks, 1 month, 3 months, 6 months, 1 year, 2 years and 5 years.</div>
+      </div>
+      <div class="step">
+        <div class="text">When the time you selected finally rolls around, you will recieve an email with that article. Never forget your favorite articles again. It is that simple, enjoy!</div>
+        <div class="image pad-left"><%= image_tag "use_three.png" %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="forms">
+    <div class="wrapper">
+      
+    <div class="email-form">
+      <h1>Change Email</h1>
+      <h4>Change the email that you want to recieve articles at anytime.</h4>
+      <%= form_for @user, :url => registration_path(@user), :html => { :method => :put } do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      
+            <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+        <div id="email-field">
+          <%= f.text_field :email %>
+        </div>
+    
+        <div id="email-button">
+          <%= f.submit "Update Email" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="feedback">
+      <h1>Please Send Us Feedback</h1>
+      <h4>We want to hear from you! The good, the bad and feature suggestions.</h4>
+      <div class="feedback-button">
+        <%= link_to "mailto:zachferland@gmail.com?Subject=Hello", :target => "top" do %>
+          <span class="icon"></span>
+          <span class="text-on-button">Send Feedback</span>
+        <%end%>
+      </div>
+    </div>
+
+  </div>
+
+
+  </div>
   </div>
 </div>
 
 
 
 <div class="mountain-block">
-
-  <%= form_for @user, :url => registration_path(@user), :html => { :method => :put } do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-  
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
 
 </div>
 
@@ -71,5 +124,6 @@
   </div>
 
 
-
 </div>
+</div>
+

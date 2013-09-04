@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+
+
+ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, 
+form, fieldset, input, p, blockquote, table, th, td, embed, object {
+	padding: 0;
+	margin: 0; 
+	}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+fieldset, img, abbr {
+	border: 0;
+	}
+address, caption, cite, code, dfn, em, 
+h1, h2, h3, h4, h5, h6, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+	}
+ul {
+	list-style: none;
+	}
+caption, th {
+	text-align: left;
+	}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1.0em;
+	}
+q:before, q:after {
+	content: '';
+	}
+a, ins {
+	text-decoration: none;
+	color: #fff;
+	}
+
+
+
+#notice {
+	background-color: #b1e07c;
+	width: 100%;
+	height: 17px;
+	padding: 8px 0;
+
+	.flash {
+		text-align: center;
+		color: #47525c;
+		font-weight: 600;
+	}
+}
+
+	
