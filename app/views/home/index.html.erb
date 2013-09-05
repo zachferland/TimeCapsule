@@ -41,7 +41,8 @@
 
 
 <div class="chrome-browser">
-<video autobuffer="autobuffer" autoplay="autoplay" loop="true" height="650px" src="/assets/demo_final.mov"</video>
+<%= video_tag "demo_final.mov", :height => "650px", :controls => false, :autobuffer => "autobuffer", :autoplay => "autoplay", :loop => true %>
+<!-- <video autobuffer="autobuffer" autoplay="autoplay" loop="true" height="650px" src="/assets/demo_final.mov"</video> -->
 	<!-- <div class="app">
 		<div class="tab-box">
 			<div class="icon"><%= image_tag "pen-icon.png" %></div>
