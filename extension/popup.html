@@ -62,6 +62,16 @@
         margin-left: 110px;
       }
 
+      .progress .error {
+        display: none;
+      }
+
+      .progress .error p{
+        padding: 18px 30px;
+        text-transform: none;
+        font-size: 16px;
+      }
+
 
 
       .label {
@@ -241,8 +251,9 @@
     </div>
   
     <div class="progress">
+
       <div class="loading">
-      <div class="spinner"><img src="loader.gif"></div>
+        <div class="spinner"><img src="loader.gif"></div>
         <p>Saving</p>
       </div>
   
@@ -250,6 +261,11 @@
         <div class="check"><img src="check.png"></div>
         <p>Saved</p>
       </div>
+
+      <div class="error">
+        <p>An error occurred. Try again!</p>
+      </div>
+
     </div>
   </div>
 

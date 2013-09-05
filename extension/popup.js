@@ -27,6 +27,7 @@ var time = {
 	listener: function() {
     //allows only one click, if rails i have to add it again
 		$(".time-val").one('click', function() { 
+      $(".error").hide();
       // Show saving.... update
       // $(".progress").animate({height: "100px"}, 500);
       $(".loading").slideDown('slow');
@@ -67,8 +68,12 @@ var time = {
                 setTimeout(function(){window.close();},2100);
               
               })
-              .fail(function() { alert("error"); });
-			
+              .fail(function() { 
+                $(".loading").slideUp('slow');
+                setTimeout(function(){$(".error").slideDown('slow');},500);
+                time.listener();
+               });
+	
 						});
 
   				    });
