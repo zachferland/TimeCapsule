@@ -1,5 +1,3 @@
-
-
 <div class="header">
 	<div class="wrapper">
 		<div class="logo">
@@ -10,7 +8,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="cover">
 	<div class="wrapper">
@@ -23,118 +20,15 @@
 	</div>
 </div>
 
-
-
-
 <div class="product-demo">
 	<div class="wrapper">
 		<h2>It is as easy as ... <span> </span> </h2>
-		
-<!-- /////////////////////////////////////////////////////////// -->
-
-
-
-
-
-
-
-
-
-<div class="chrome-browser">
-<%= video_tag "demo_final.mov", :height => "650px", :controls => false, :autobuffer => "autobuffer", :autoplay => "autoplay", :loop => true %>
-<!-- <video autobuffer="autobuffer" autoplay="autoplay" loop="true" height="650px" src="/assets/demo_final.mov"</video> -->
-	<!-- <div class="app">
-		<div class="tab-box">
-			<div class="icon"><%= image_tag "pen-icon.png" %></div>
-			<div class="text">Blog - Such a Rush?</div>
+		<div class="chrome-browser">
+			<%= video_tag "demo_final.mov", :height => "650px", :controls => false, :autobuffer => "autobuffer", :autoplay => "autoplay", :loop => 		true %>
 		</div>
-		<div class="url-box">http://somearticle.com/</div>
-    	<div class="extension-icon"></div>
-    	<div class="extension">
-    		<div class="row">
-  			  <div class="label">
-  			    <p>Weeks</p>
-  			  </div>
-  			  <div class="time-val" data-value="7">1</div>
-  			  <div class="time-val" data-value="14">2</div>
-  			  <div class="time-val" data-value="21">3</div>
-  			</div>
-  			
-  			<div class="row">
-  			  <div class="label">
-  			    <p>Months</p>
-  			  </div>
-  			  <div class="time-val" data-value="30">1</div>
-  			  <div class="time-val" data-value="90">3</div>
-  			  <div class="time-val" data-value="180">6</div>
-  			</div>
-  			
-  			<div class="row">
-  			  <div class="label">
-  			    <p>Years</p>
-  			  </div>
-  			  <div class="time-val" data-value="365">1</div>
-  			  <div class="time-val" data-value="730">2</div>
-  			  <div class="time-val" data-value="1830">5</div>
-  			</div>
-			
-  			<div class="progress">
-  			  <div class="loading">
-  			  <div class="spinner"><%= image_tag "loader.gif" %></div>
-  			    <p>Saving</p>
-  			  </div>
-			
-  			  <div class="saved">
-  			    <div class="check"><%= image_tag "check.png" %></div>
-  			    <p>Saved</p>
-  			  </div>
-  			</div>
-    	</div>
-		<div class="screen">
-    	  <div class="article-1">
-    	    <%= image_tag "chrome-article.png" %>
-    	  </div>
-    	  <div class="time">
-    	  	<div class="place-loader">
-    	  		<div id="loaderImage"></div>
-    	  	</div>
-    	  	<div class="time-box">1 Month later</div>
-    	  </div>
-
-    	  <div class="inbox">
-    	  	<%= image_tag "inbox.png" %>
-    	  	<div class="the-email"></div>
-    	  </div>
-
-    	  <div class="email">
-    	  	<%= image_tag "mail.png" %>
-    	  	<div class="read-more"></div>
-    	  </div>
-
-    	  <div class="final">
-    	  	<%= image_tag "chrome-article.png" %>
-    	  </div>
-				
-		</div>
-	</div> -->
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- /////////////////////////////////////////////////////////// -->
 
 	</div>
 </div>
-
-
 
 <div class="extension-details">
 	<div class="wrapper">
@@ -180,77 +74,3 @@
 	</div>
 </div>
 
-<!-- 
-<div class="accent">
-	<div class="blue-accent"></div>
-	<div class="green-accent"></div>
-</div> -->
-
-
-
-
-
-<script type="text/javascript">
-	var cSpeed=16;
-	var cWidth=220;
-	var cHeight=220;
-	var cTotalFrames=18;
-	var cFrameWidth=220;
-	var cImageSrc= 'assets/sprites.gif';
-	
-	var cImageTimeout=false;
-	var cIndex=0;
-	var cXpos=0;
-	var cPreloaderTimeout=false;
-	var SECONDS_BETWEEN_FRAMES=0;
-	
-	function startAnimation(){
-		
-		document.getElementById('loaderImage').style.backgroundImage='url('+cImageSrc+')';
-		document.getElementById('loaderImage').style.width=cWidth+'px';
-		document.getElementById('loaderImage').style.height=cHeight+'px';
-		
-		//FPS = Math.round(100/(maxSpeed+2-speed));
-		FPS = Math.round(100/cSpeed);
-		SECONDS_BETWEEN_FRAMES = 1 / FPS;
-		
-		cPreloaderTimeout=setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES/1000);
-		
-	}
-	
-	function continueAnimation(){
-		
-		cXpos += cFrameWidth;
-		//increase the index so we know which frame of our animation we are currently on
-		cIndex += 1;
-		 
-		//if our cIndex is higher than our total number of frames, we're at the end and should restart
-		if (cIndex >= cTotalFrames) {
-			cXpos =0;
-			cIndex=0;
-		}
-		
-		if(document.getElementById('loaderImage'))
-			document.getElementById('loaderImage').style.backgroundPosition=(-cXpos)+'px 0';
-		
-		cPreloaderTimeout=setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES*1000);
-	}
-	
-	function stopAnimation(){//stops animation
-		clearTimeout(cPreloaderTimeout);
-		cPreloaderTimeout=false;
-	}
-	
-	function imageLoader(s, fun)//Pre-loads the sprites image
-	{
-		clearTimeout(cImageTimeout);
-		cImageTimeout=0;
-		genImage = new Image();
-		genImage.onload=function (){cImageTimeout=setTimeout(fun, 0)};
-		genImage.onerror=new Function('alert(\'Could not load the image\')');
-		genImage.src=s;
-	}
-	
-	//The following code starts the animation
-	new imageLoader(cImageSrc, 'startAnimation()');
-</script>
