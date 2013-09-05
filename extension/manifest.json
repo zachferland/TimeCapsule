@@ -14,8 +14,11 @@
     "tabs",
     "cookies",
     "http://localhost:3000/",
-    "http://www.diffbot.com/"
+    "http://www.diffbot.com/",
+    "http://cdn.mxpnl.com/"
   ],
+
+   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'",
 
   "background": {
     "scripts": ["background.js"]
@@ -23,3 +26,4 @@
 
 
 }
+

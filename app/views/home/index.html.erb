@@ -7,7 +7,7 @@
 		<div class="logo">
 			<%= image_tag "logo.png" %>
 		</div>
-		<div class="login">
+		<div class="login" onclick="mixpanel.track('Click Login Button');">
 			<%= link_to "Login", new_user_session_path %>
 		</div>
 	</div>
@@ -18,8 +18,8 @@
 		<h1 class="heading">Send Your Favorite Articles to the Future</h1>
 		<h2 class="sub-heading">A simple chrome extension that makes it easy to remember the articles you want to read again.</h2>
 		<div class="buttons">
-			<div class="learn-more"> <%= link_to "Learn More", new_user_session_path %> </div>
-			<div class="download"> <%= link_to "Download Chrome Extension", new_user_registration_path %> </div>
+			<div class="learn-more" onclick="mixpanel.track('Click Learn More Button ');"> <%= link_to "Learn More", new_user_session_path %> </div>
+			<div class="download" onclick='mixpanel.track("Click Signup Button", {"id": "main");'> <%= link_to "Download Chrome Extension", new_user_registration_path %> </div>
 		</div>
 	</div>
 </div>
@@ -50,7 +50,7 @@
 	<div class="wrapper">
 		<div class="center">
 			<h2>Do you like what you see?</h2>
-			<div class="button"> 
+			<div class="button" onclick='mixpanel.track("Click Signup Button", {"id": "bottom");'> 
 				<%= link_to new_user_registration_path do %>
 					<span class="icon"></span>
 					<span class="text-on-button">Start using TimeCapsule</span>
@@ -66,7 +66,7 @@
 			<p class="made-by">An app by</p>
 			<div class="grey-button">
 				<div class="icon"></div>
-				<div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
+				<div class="text-on-button" onclick="mixpanel.track('Click Personal Twitter Button');"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
 			</div>
 			<p class="made-in"> in Trento, Italy</p>
 			<div class="italian-flag">

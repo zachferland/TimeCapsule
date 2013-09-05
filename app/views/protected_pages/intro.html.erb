@@ -21,7 +21,7 @@
       <h1>Download Extension</h1>
       <h4>The extension is available for free through the Chrome Web Store</h4>
       </div>
-      <div class="download-button">
+      <div class="download-button" onclick="mixpanel.track('Click Download Extension');">
         <%= link_to "http://facebook.com" do %>
           <span class="icon"></span>
           <span class="text-on-button">Download Extension</span>
@@ -80,7 +80,7 @@
     <div class="feedback">
       <h1>Please Send Us Feedback</h1>
       <h4>We want to hear from you! The good, the bad and feature suggestions.</h4>
-      <div class="feedback-button">
+      <div class="feedback-button" onclick="mixpanel.track('Click Send Feedback');">
         <%= link_to "mailto:zachferland@gmail.com?Subject=Hello", :target => "top" do %>
           <span class="icon"></span>
           <span class="text-on-button">Send Feedback</span>

@@ -23,7 +23,7 @@
       
         <div id="email-field"> <%= f.email_field :email, :autofocus => true, :placeholder => "ENTER EMAIL" %> </div>
       
-        <div id="email-button"> <%= f.submit "Complete Signup" %> </div>
+        <div id="email-button" onclick="mixpanel.track('Add Email to Account');"> <%= f.submit "Complete Signup" %> </div>
       <% end %>
     </div>
     
@@ -36,7 +36,7 @@
         <div class="return"> <%= link_to "<  Return to home page", root_path %> </div>
       </div>
       <div class="half">
-        <div class="twitter-button">
+        <div class="twitter-button" onclick='mixpanel.track("Signup", {"provider": "Twitter"});'>
           <%= link_to user_omniauth_authorize_path(:twitter, :display => 'page') do %>
             <span class="icon"></span>
             <span class="text-on-button">
