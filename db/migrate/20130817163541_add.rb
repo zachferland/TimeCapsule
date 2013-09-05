@@ -1,7 +1,7 @@
-class Add < ActiveRecord::Migration
-  def up
-  end
+# class Add < ActiveRecord::Migration
+#   def up
+#   end
 
-  def down
-  end
-end
+#   def down
+#   end
+# end
