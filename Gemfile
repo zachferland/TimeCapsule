@@ -1,11 +1,16 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '~> 0.16.0'
+
+#for heroku integration for rails 4
+gem 'rails_12factor', group: :production
 
 gem 'json'
 
