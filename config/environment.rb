@@ -5,9 +5,9 @@ require File.expand_path('../application', __FILE__)
 Timecapsule::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'zfer',
-  :password => 'this100something',
-  :domain => 'localhost:3000',
+  :user_name => ENV["SENDGRID_USER_NAME"],
+  :password => ENV["SENDGRID_PASSWORD"],
+  :domain => ENV["SENDGRID_DOMAIN"],
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

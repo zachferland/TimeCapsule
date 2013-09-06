@@ -125,9 +125,10 @@ p, h1, a, h2 {
       text-align: center;
     }
 
-    .learn-more a {
+    .learn-more {
       float: left;
       @include white-button(320px, 20px);
+      -webkit-font-smoothing: antialiased;
 
     }
 

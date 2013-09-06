@@ -3,8 +3,30 @@
  # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
+$(".learn-more").click (event) ->
+  event.preventDefault()
+  mixpanel.track('Click Learn More Button ')
+  alert("hello")
+  n = $(document).height()
+  $("html, body").animate
+    scrollTop: "100px"
+  , "50"
+
 
 $(document).ready ->
+
+  $(".learn-more").click (event) ->
+    event.preventDefault()
+    mixpanel.track('Click Learn More Button')
+    n = $(document).height()
+    $("html, body").animate
+      scrollTop: 600
+    , "50"
+
+
+
+
+
   console.log('hello');
   $(".extension-icon").click ->
     $(".extension").slideDown "slow"
@@ -14,36 +36,6 @@ $(document).ready ->
 
       setTimeout(
         $(".saved").slideDown('slow'); 
-
-      # $(".saved").slideDown('slow').delay 700, ->
-
-        # setTimeout( 
-        #   $(".extension").slideUp '200'
-
-        #   $(".screen").css "overflow-y", "hidden"
-        #   $(".url-box").html  ""
-
-        #   setTimeout( 
-        #     $(".time").show(1000)
-        #     # $(".time").show(1000).delay 3000, ->
-
-        #     setTimeout(  
-        #       $(".time-box").html("hello")
-
-        #       setTimeout(  
-        #         $(".time-box").html("2 months later")
-
-        #         setTimeout(  
-        #           $(".time-box").html("3 months later")
-
-        #           $(".inbox").show 'slow'
-        #           $(".url-box").html  "http://yourinbox.com"
-
-        #         , 5000);
-        #       , 5000);
-        #     , 5000);
-        #   , 5000);
-        # , 5000);
       , 5000);
 
 
@@ -51,7 +43,6 @@ $(document).ready ->
     $(".extension").slideUp '300'
 
     $(".screen").css "overflow-y", "hidden"
-    # $(".url-box").html("")
 
     $(".time").delay(1000).show(1000)
 
