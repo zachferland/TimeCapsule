@@ -52,12 +52,12 @@ var time = {
       console.log(timevalue);
 
 
-			chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
+			chrome.cookies.get({ url: 'http://www.timecapsule.io/', name: 'login' },
   				function (cookie) {
   				  if (cookie) {
   				    var auth_token = cookie.value;
 
-  				    auth_url = 'http://localhost:3000/getuser/' + auth_token;
+  				    auth_url = 'http://www.timecapsule.io/getuser/' + auth_token;
 
   				    $.post(auth_url, function(data) {
   				    	var user_id = data.user_id;
@@ -74,7 +74,7 @@ var time = {
 							var div = document.getElementById('url');
 	 						div.innerHTML = title;
 			
-	 						var article_url = 'http://localhost:3000/users/' + user_id + '/articles?auth_token=' + auth_token;
+	 						var article_url = 'http://www.timecapsule.io/users/' + user_id + '/articles?auth_token=' + auth_token;
 			
 	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
               .done(function() { 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
 	url.get();
 
   //is the user logged in huh
-  chrome.cookies.get({ url: 'http://localhost:3000/', name: 'login' },
+  chrome.cookies.get({ url: 'http://www.timecapsule.io/', name: 'login' },
     function (cookie) {
       if (cookie) {
         //user logged in
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
 
         var auth_token = cookie.value;
 
-        auth_url = 'http://localhost:3000/getuser/' + auth_token;
+        auth_url = 'http://www.timecapsule.io/getuser/' + auth_token;
 
         $.post(auth_url, function(data) {
           var user_id = data.user_id;
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
         //user NOT logged in   
        $(".twitter-button").click(function() { 
 
-          chrome.tabs.create({url: "http://localhost:3000/users/auth/twitter"});
+          chrome.tabs.create({url: "http://www.timecapsule.io/users/auth/twitter"});
 
         });
        
