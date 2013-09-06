@@ -16,8 +16,10 @@ def self.from_omniauth(auth)
     user.provider = auth.provider
     user.uid = auth.uid
     user.username = auth.info.nickname
+    user.name = auth.info.name
     user.oauth_token = auth.credentials.token
     user.oauth_secret = auth.credentials.secret
+    user.image = auth.info.image
 
   end
 

@@ -1,3 +1,9 @@
+
+<%= javascript_tag do %>
+  var id = <%= @user.id %>;
+  mixpanel.identify(id);
+<% end %>
+
 <div class="dark">
 <div class="intro-page">
 <div class="page-wrap">
@@ -20,14 +26,22 @@
       <div class="text">
 
 
-<% if @user.sign_in_count <= 17 %>
+<% if @user.sign_in_count <= 1 %>
 
   <%= javascript_tag do %>
     var id = <%= @user.id %>;
     var email = '<%= @user.email %>';
+    var name = '<%= @user.name %>';
+    var image = '<%= @user.image%>';
+    var twitter_handle = '<%= @user.username%>';
+    mixpanel.alias(id)
     mixpanel.identify(id);
     mixpanel.people.set({
-      "$email": email         
+      "$email": email,
+      "$name": name,
+      "$image": image,
+      "Twitter Handle": twitter_handle,
+      "$created": new Date()       
     });
   <% end %>
 

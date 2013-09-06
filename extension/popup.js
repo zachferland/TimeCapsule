@@ -5,8 +5,6 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("e36c53c122ec4bfa928d3501360c5f9a");
  // end Mixpanel
 
-mixpanel.track('Open Extension');
-
 
 // GLOBAL
 var diffbotToken = "c71959b7b4f679b683a289a4d7dfa0bd";
@@ -46,6 +44,10 @@ var time = {
 			var timevalue = parseInt($(this).data("value")); 
 
       mixpanel.track('Send Article', {"Send Time": timevalue});
+
+      mixpanel.people.set({
+        "Last Use": new Date()       
+      });
 
       console.log(timevalue);
 
@@ -115,6 +117,16 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
         console.log('You are logged in');
 
         $("#app").show();
+
+        var auth_token = cookie.value;
+
+        auth_url = 'http://localhost:3000/getuser/' + auth_token;
+
+        $.post(auth_url, function(data) {
+          var user_id = data.user_id;
+          mixpanel.identify(user_id);
+          mixpanel.track('Open Extension');
+        });
 		
 		    time.listener();
 
@@ -124,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
 
         $("#login").show();
 
-
+        mixpanel.track('Open Extension');
 
         //user NOT logged in   
        $(".twitter-button").click(function() { 
