@@ -18,6 +18,22 @@
 
     <div class="download">
       <div class="text">
+
+
+<% if @user.sign_in_count <= 17 %>
+
+  <%= javascript_tag do %>
+    var id = <%= @user.id %>;
+    var email = '<%= @user.email %>';
+    mixpanel.identify(id);
+    mixpanel.people.set({
+      "$email": email         
+    });
+  <% end %>
+
+<% end %>
+
+
       <h1>Download Extension</h1>
       <h4>The extension is available for free through the Chrome Web Store</h4>
       </div>
