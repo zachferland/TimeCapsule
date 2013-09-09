@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Timecapsule.io",
-  "description": "Send articles to the future. Timecapsule is the best way to remember the articles you want to read again",
+  "description": "Send your favorite articles to the future. A simple extension that makes it easy to remember the articles you want to read again.",
   "version": "1.0.0",
 
   "browser_action": {
@@ -10,21 +10,28 @@
     "default_popup": "popup.html"
   },
 
- "permissions": [
+  "author": "Zach Ferland",
+
+  "icons": { 
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png" 
+  },
+
+  "permissions": [
     "tabs",
     "cookies",
-    "http://localhost:3000/",
     "http://www.diffbot.com/",
     "http://www.timecapsule.io/",
+    "http://timecapsule.io/",
     "http://cdn.mxpnl.com/"
   ],
 
-   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'",
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": false
   }
-
-
 }
 

@@ -5,7 +5,6 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("e36c53c122ec4bfa928d3501360c5f9a");
  // end Mixpanel
 
-
 // GLOBAL
 var diffbotToken = "c71959b7b4f679b683a289a4d7dfa0bd";
 
@@ -16,9 +15,7 @@ Date.prototype.addDays = function(days){
     return dat;
 }
 
-
 var url = {
-
   get: function() {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
      url = tabs[0].url;
@@ -26,128 +23,82 @@ var url = {
 	 div.innerHTML = url;
    });
   }
-
 };
 
-
 var time = {
-
 	listener: function() {
-    //allows only one click, if rails i have to add it again
 		$(".time-val").one('click', function() { 
       $(".error").hide();
-
-      // Show saving.... update
-      // $(".progress").animate({height: "100px"}, 500);
       $(".loading").slideDown('slow');
-
 			var timevalue = parseInt($(this).data("value")); 
-
       mixpanel.track('Send Article', {"Send Time": timevalue});
-
       mixpanel.people.set({
         "Last Use": new Date()       
       });
-
-      console.log(timevalue);
-
-
-			chrome.cookies.get({ url: 'http://www.timecapsule.io/', name: 'login' },
-  				function (cookie) {
-  				  if (cookie) {
-  				    var auth_token = cookie.value;
-
-  				    auth_url = 'http://www.timecapsule.io/getuser/' + auth_token;
-
-  				    $.post(auth_url, function(data) {
-  				    	var user_id = data.user_id;
-  				    	  
-
-						var dat = new Date();
-						var send_at_time = dat.addDays(timevalue);
-			
-						var diffbotUrl = "http://www.diffbot.com/api/article?token=" + diffbotToken + "&url=" + url + "&summary=true";
-			
-						$.get(diffbotUrl, function(data) {
-							var summary = data.summary;
-							var title = data.title;
-							var div = document.getElementById('url');
-	 						div.innerHTML = title;
-			
-	 						var article_url = 'http://www.timecapsule.io/users/' + user_id + '/articles?auth_token=' + auth_token;
-			
-	 						$.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
-              .done(function() { 
-                $(".loading").slideUp('slow');
-                setTimeout(function(){$(".saved").slideDown('slow');},500);
-                setTimeout(function(){window.close();},2100);
-              
-              })
-              .fail(function() { 
-                $(".loading").slideUp('slow');
-                setTimeout(function(){$(".error").slideDown('slow');},500);
-                time.listener();
-               });
-	
-						});
-
-  				    });
-				
-  				  }
-  				  else {
-  				    console.log('Can\'t get cookie! Check the name!');
-  				  }
+			chrome.cookies.get({ url: 'http://timecapsule.io/', name: 'login' },
+  			function (cookie) {
+  			  if (cookie) {
+  			    var auth_token = cookie.value;
+  			    auth_url = 'http://timecapsule.io/getuser/' + auth_token;
+  			    $.post(auth_url, function(data) {
+  			    	var user_id = data.user_id; 
+					    var dat = new Date();
+					    var send_at_time = dat.addDays(timevalue);
+					    var diffbotUrl = "http://www.diffbot.com/api/article?token=" + diffbotToken + "&url=" + url + "&summary=true";
+					    $.get(diffbotUrl, function(data) {
+						    var summary = data.summary;
+						    var title = data.title;
+						    var div = document.getElementById('url');
+	 					    div.innerHTML = title;
+		
+	 					    var article_url = 'http://timecapsule.io/users/' + user_id + '/articles?auth_token=' + auth_token;
+	 					    $.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
+                .done(function() { 
+                  $(".loading").slideUp('slow');
+                  setTimeout(function(){$(".saved").slideDown('slow');},500);
+                  setTimeout(function(){window.close();},2100);
+                })
+                .fail(function() { 
+                  $(".loading").slideUp('slow');
+                  setTimeout(function(){$(".error").slideDown('slow');},500);
+                  time.listener();
+                });
+					    });
+  			    });
+  			  }
+  			 else {
+  			  
+  			 }
 			});
-
-
 		});
 	}
 };
 
-
-
 document.addEventListener('DOMContentLoaded', function () {   //wait to popup dom is loaded
+  //get url
 	url.get();
-
   //is the user logged in huh
-  chrome.cookies.get({ url: 'http://www.timecapsule.io/', name: 'login' },
+  chrome.cookies.get({ url: 'http://timecapsule.io', name: 'login' },
     function (cookie) {
       if (cookie) {
-        //user logged in
-        console.log('You are logged in');
-
         $("#app").show();
-
         var auth_token = cookie.value;
-
-        auth_url = 'http://www.timecapsule.io/getuser/' + auth_token;
-
+        auth_url = 'http://timecapsule.io/getuser/' + auth_token;
         $.post(auth_url, function(data) {
           var user_id = data.user_id;
           mixpanel.identify(user_id);
           mixpanel.track('Open Extension');
         });
-		
 		    time.listener();
-
       } else {
-        //user NOT logged in    
-        console.log('You are not logged in');
-
+        //user NOT logged in  
         $("#login").show();
-
         mixpanel.track('Open Extension');
-
-        //user NOT logged in   
        $(".twitter-button").click(function() { 
-
-          chrome.tabs.create({url: "http://www.timecapsule.io/users/auth/twitter"});
-
+          chrome.tabs.create({url: "http://timecapsule.io/users/auth/twitter"});
         });
-       
       }
   });
-
 });
 
 
