@@ -442,7 +442,7 @@ p, h1, a, h2 {
   .text {
     width: 425px;
     margin-left: 130px;
-    padding: 166px 0;
+    padding: 144px 0;
     color: $lessdarktext;
     float: left;
 
@@ -450,6 +450,7 @@ p, h1, a, h2 {
       font-size: 17px;
       margin-top: 40px;
       line-height: 24px;
+      text-indent: 30px;
     }
   
     h2 {
@@ -573,26 +574,6 @@ p, h1, a, h2 {
     }
   }
 }
-
-
-/*.accent {
-  width: 100%;
-
-  .blue-accent {
-    background-color: $blue;
-    float: left;
-    width: 50%;
-    height: 5px;
-  }
-
-  .green-accent {
-    background-color: $green;
-    float: left;
-    width: 50%;
-    height: 5px;
-  }
-}
-*/
 
 .italian-flag {
   float: left;

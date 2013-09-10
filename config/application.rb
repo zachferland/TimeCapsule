@@ -6,6 +6,13 @@ Bundler.require(:default, Rails.env)
 
 module Timecapsule
   class Application < Rails::Application
+
+
+
+    #VERSION 1.0.0 OF TIMECAPSULE.IO
+
+    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -1,12 +1,10 @@
 var DEVELOPMENT_URL = "http://localhost:3000"
 var PRODUCTION_URL = "http://timecapsule.io"
 
-var LIVE_URL = DEVELOPMENT_URL;
+var LIVE_URL = PRODUCTION_URL;
 
 // GLOBAL
 var diffbotToken = "c71959b7b4f679b683a289a4d7dfa0bd";
-
-var tt;
 
  //Extned Date to add days
 Date.prototype.addDays = function(days){
@@ -37,14 +35,9 @@ function postArticle(time, url, callback) {
 				    var summary = data.summary;
 				    var title = data.title;
 
-            tt = auth_token;
-
 	 			    var article_url = LIVE_URL + '/users/' + user_id + '/articles?auth_token=' + auth_token;
 
-            // var article_url = LIVE_URL + '/users/' + user_id + '/articles'
-
             var views = chrome.extension.getViews({ type: "popup" });
-
 
 	 			    $.post(article_url, {article: {url: url, send_at: send_at_time, summary: summary, title: title}  })
 

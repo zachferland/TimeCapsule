@@ -1,9 +1,7 @@
 var DEVELOPMENT_URL = "http://localhost:3000"
 var PRODUCTION_URL = "http://timecapsule.io"
 
-var LIVE_URL = DEVELOPMENT_URL;
-
-var tt;
+var LIVE_URL = PRODUCTION_URL;
 
  // start Mixpanel 
 (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src='https://cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
@@ -71,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {   //wait to popup do
   //is the user logged in huh
   chrome.cookies.get({ url: LIVE_URL , name: 'login' },
     function (cookie) {
-      tt = cookie;
       if (cookie) {
         $("#app").show();
         var auth_token = cookie.value;
