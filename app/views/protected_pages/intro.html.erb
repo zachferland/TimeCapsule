@@ -52,7 +52,7 @@
       <h4>The extension is available for free through the Chrome Web Store</h4>
       </div>
       <div class="download-button" onclick="mixpanel.track('Click Download Extension');">
-        <%= link_to "https://chrome.google.com/webstore/detail/timecapsuleio/anlagecokaacgjamflacacngodhlmkom" do %>
+        <%= link_to "https://chrome.google.com/webstore/detail/timecapsuleio/anlagecokaacgjamflacacngodhlmkom", :target => "top" do %>
           <span class="icon"></span>
           <span class="text-on-button">Download Extension</span>
         <%end%>
@@ -140,7 +140,7 @@
           <p class="made-by">An app by</p>
           <div class="grey-button">
             <div class="icon"></div>
-            <div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland" %></div>
+            <div class="text-on-button"><%= link_to "@zachferland", "https://twitter.com/zachferland", :target => "top"%></div>
           </div>
           <p class="made-in"> in Trento, Italy</p>
           <div class="italian-flag">
