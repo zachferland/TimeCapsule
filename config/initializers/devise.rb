@@ -16,10 +16,9 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
 
-
+  # I think i could seriously clean this up a bit
   Warden::Manager.after_set_user do |user,auth,opts|
-    # auth.cookies[:signed_in] = user.id
-    user.reset_authentication_token!
+    # user.reset_authentication_token!
     auth.cookies[:login] = { :value => user.authentication_token, :expires => Time.now + 2.months}
   end
 

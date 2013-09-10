@@ -24,7 +24,9 @@
     "http://www.diffbot.com/",
     "http://www.timecapsule.io/",
     "http://timecapsule.io/",
-    "http://cdn.mxpnl.com/"
+    "http://cdn.mxpnl.com/",
+    "http://localhost:3000/"
+
   ],
 
   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'",

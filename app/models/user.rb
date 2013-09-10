@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_many :articles
 
+  before_save :ensure_authentication_token
+
 def self.from_omniauth(auth)
   where(auth.slice(:provider, :uid)).first_or_create do |user|
     user.provider = auth.provider
@@ -55,7 +57,7 @@ end
 
 def user_params
     params.require(:article).permit(:email, :password, :password_confirmation, :remember_me, :name)
-  end
+end
 
 
 end
