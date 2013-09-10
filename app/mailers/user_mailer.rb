@@ -1,13 +1,15 @@
 class UserMailer < ActionMailer::Base
  
-  default :from => 'any_from_address@example.com'
+  default :from => 'past@timecapsule.io'
 
-  # send a signup email to the user, pass in the user object that contains the user's email address
+  helper :mail
+
   def article_email(user, articles)
   	@user = user
   	@articles = articles
     mail( :to => @user.email,
-    :subject => 'Hello' )
+    	:subject => 'Articles Have Arrived',
+    	:fromname => 'Timecapsule.io' )
   end
 
 
