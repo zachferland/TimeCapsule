@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
 
   private 
   def self.fetch_articles
-  	articles = Article.where(send_at: Time.now.midnight..(Time.now.midnight + 8.day))
+  	articles = Article.where(send_at: Time.now.midnight..(Time.now.midnight + 1.day))
   	articles_users = articles.group_by { |t| t.user_id}
   end
  

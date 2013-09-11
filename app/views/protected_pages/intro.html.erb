@@ -1,3 +1,13 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=359176614215413";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 
 <%= javascript_tag do %>
   var id = <%= @user.id %>;
@@ -60,6 +70,29 @@
     </div>
   </div>
 
+
+    <div class="small-wrapper">
+      <div class="share">
+        <div class="image"></div>
+        <div class="text">
+        <h2>You are sending articles to the future! That is pretty darn cool, you should probably tell your friends!</h2>
+        <div class="share-box">
+          <div class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://timecapsule.io" data-text="I am sending articles to the future, you probably should too!" data-via="zachferland">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          </div>
+          <div class="facebook">
+            <div class="fb-like" data-href="http://timecapsule.io" data-width="150" data-layout="button_count" data-show-faces="false" data-send="true"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
   <div class="use">
     <div class="small-wrapper">
       <h1>Simple to Use</h1>
@@ -111,7 +144,7 @@
       <h1>Please Send Us Feedback</h1>
       <h4>We want to hear from you! The good, the bad and feature suggestions.</h4>
       <div class="feedback-button" onclick="mixpanel.track('Click Send Feedback');">
-        <%= link_to "mailto:zachferland@gmail.com?Subject=Hello", :target => "top" do %>
+        <%= link_to "mailto:feedback@timecapsule.io?Subject=Hello", :target => "top" do %>
           <span class="icon"></span>
           <span class="text-on-button">Send Feedback</span>
         <%end%>
