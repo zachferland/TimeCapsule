@@ -21,7 +21,6 @@ def self.from_omniauth(auth)
     user.oauth_token = auth.credentials.token
     user.oauth_secret = auth.credentials.secret
     user.image = auth.info.image
-
   end
 
 end
@@ -47,6 +46,10 @@ def update_with_password(params, *options)
   else
     super
   end
+end
+
+def self.mail_welcome(user)
+  UserMailer.welcome_email(user).deliver
 end
 
 def twitter

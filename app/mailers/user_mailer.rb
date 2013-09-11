@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
  
-  default :from => 'past@timecapsule.io'
+  # default :from => 'past@timecapsule.io'
 
   helper :mail
 
@@ -9,8 +9,26 @@ class UserMailer < ActionMailer::Base
   	@articles = articles
     mail( :to => @user.email,
     	:subject => 'Articles Have Arrived',
+    	:from => 'past@timecapsule.io',
     	:fromname => 'Timecapsule.io' )
   end
+
+
+  def welcome_email(user)
+  	@user = user
+  	mail( :to => @user.email,
+    	:subject => 'Welcome to Timecapsule.io',
+    	:from => 'welcome@timecapsule.io',
+    	:fromname => 'Timecapsule.io' )
+  end
+
+  def test_email
+  	mail( :to => "zachferland@gmail.com",
+    	:subject => 'Hi this a test!',
+    	:from => 'welcome@timecapsule.io',
+    	:fromname => 'Timecapsule.io' )
+  end
+
 
 
 end

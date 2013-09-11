@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def create 
+    super
+    User.mail_welcome(@user) unless @user.invalid?
+  end 
+
 
     # PUT /resource
   # We need to use a copy of the resource because we don't want to change
