@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-width: 301px;
+  min-height: 160px;
+  background-color: #f9f7f5;
+  font-family: verdana, arial, helvetica, sans-serif;
+  color: #57616b;
+  -webkit-font-smoothing: antialiased;
+}
+
+.progress {
+  width: 100%;
+  min-height: 10px;
+  background-color: #23adeb;
+  font-size: 18px;
+  color: #fff;
+  text-transform:  uppercase;
+  float: left;
+}
+
+.progress p, .progress div {
+  float: left;
+}
+
+.progress .loading {
+  display: none;
+  padding: 15px 0;
+  margin-left: 105px;
+
+}
+
+.progress .loading .spinner {
+  padding-right: 10px;
+}
+
+.progress .saved .check {
+  padding-right: 10px;
+}
+
+.progress .loading p {
+  margin-top: 2px;
+}
+
+.progress .saved p {
+  margin-top: 2px;
+}
+
+
+.progress .saved {
+  display: none;
+  padding: 15px 0;
+  margin-left: 110px;
+}
+
+.progress .error {
+  display: none;
+}
+
+.progress .error p{
+  padding: 18px 30px;
+  text-transform: none;
+  font-size: 16px;
+}
+
+
+
+.label {
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 37px;
+  width: 105px;
+  padding-left: 20px;
+  float: left;
+  font-weight: 600;
+  padding-top: 18px;
+}
+
+.row {
+  height: 55px;
+  width: 100%;
+  border-top: 2px solid #eeecea;
+  border-left: 2px solid #eeecea;
+  border-right: 2px solid #eeecea;
+}
+
+.time-val {
+  height: 40px;
+  width: 35px;
+  border-left: 2px solid #eeecea;
+  float: left;
+  font-size: 18px;
+  padding-left: 21px;
+  padding-top: 15px;
+}
+
+.time-val:hover {
+  background-color: #23adeb;
+  color: #fff;
+  cursor: pointer;
+}
+
+#url {
+  display: none;
+}
+
+#login {
+  display: none;
+}
+
+#login .text {
+  font-size: 14px;
+  color: #333d48;
+  padding: 10px 21px;
+  text-align: center;
+}
+
+#login .logo {
+  margin: 15px 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eeecea
+}
+
+#login .twitter-button {
+  height: 40px;
+  width: 240px;
+  background-color: #25a6e9;
+  float: left;
+  margin: 20px 33px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#login .twitter-button:hover {
+  background-color: #40b8f6;
+}
+
+#login .twitter-button .icon {
+  background-image: url(twitter-icon.png);
+  height: 40px;
+  width: 50px;
+  float: left;
+
+}
+
+#login .twitter-button .text-on-button {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px -0px rgba(0,0,0,0.1);
+  margin: 13px 0 0 16px;
+  float: left;
+  display: block;
+}
+
+#app {
+  display: none;
+}

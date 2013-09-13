@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 ruby "2.0.0"
@@ -15,6 +16,9 @@ gem 'rails_12factor', group: :production
 gem 'json'
 
 gem 'thin'
+
+# gem for the diffbot api
+gem 'biffbot'
 
 gem 'devise'
 gem 'omniauth-twitter'

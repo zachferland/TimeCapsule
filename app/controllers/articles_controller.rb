@@ -45,13 +45,23 @@ class ArticlesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @article = @user.articles.new(article_params)
+  
+    diffbot = Biffbot::Base.new("c71959b7b4f679b683a289a4d7dfa0bd")
 
-      if @article.save
-        render :json=> {:article => @article, :status => :created, :location => @article }
-      else
-        render :json=> {:article => @article.errors, :status => :unprocessable_entity}
-        
-      end
+    options = Hash.new
+    options[:summary] = true
+
+    diffbot_article = diffbot.parse(@article.url, options)
+
+    @article.title = diffbot_article[:title]
+    @article.summary = diffbot_article[:summary]
+
+    if @article.save
+      render :json=> {:article => @article, :status => :created, :location => @article }
+    else
+      render :json=> {:article => @article.errors, :status => :unprocessable_entity}
+      
+    end
   end
 
   # PUT /articles/1

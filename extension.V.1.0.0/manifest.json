@@ -3,7 +3,7 @@
 
   "name": "Timecapsule.io",
   "description": "Send your favorite articles to the future. A simple extension that makes it easy to remember the articles you want to read again.",
-  "version": "1.0.1",
+  "version": "1.0.0",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -21,14 +21,18 @@
   "permissions": [
     "tabs",
     "cookies",
+    "http://www.diffbot.com/",
+    "http://www.timecapsule.io/",
     "http://timecapsule.io/",
+    "http://cdn.mxpnl.com/",
     "http://localhost:3000/"
+
   ],
 
   "content_security_policy": "script-src 'self' https://cdn.mxpnl.com; object-src 'self'",
 
   "background": {
-    "scripts": ["background.js", "jquery.js", "mixpanel.js"]
+    "scripts": ["background.js", "jquery.js"]
   }
 }
 
