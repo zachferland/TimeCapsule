@@ -7,7 +7,7 @@ end
 
 task :testing => :environment do
   if Time.now.monday? or Time.now.wednesday? or Time.now.sunday?
-  	puts "Testing it"
+  	puts "Testing"
   	sleep 3
   	puts "Done."
   end
