@@ -9,7 +9,7 @@ module Timecapsule
 
 
 
-    #VERSION 1.0.1 OF TIMECAPSULE.IO
+    #VERSION 1.0.2 OF TIMECAPSULE.IO
 
     
 
