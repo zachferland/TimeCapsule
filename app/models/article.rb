@@ -9,6 +9,11 @@ class Article < ActiveRecord::Base
   		@user = self.get_user(user)
   		# email articles
   		UserMailer.article_email(@user, articles).deliver
+
+      for @article in articles
+        @article.sent = true;
+        @article.save
+      end 
   	end
   end
 
@@ -19,8 +24,10 @@ class Article < ActiveRecord::Base
 
   private 
   def self.fetch_articles
-  	articles = Article.where(send_at: Time.now.midnight..(Time.now.midnight + 1.day))
+  	articles = Article.where("send_at <= ? AND sent = ?", Time.now.midnight, false)
   	articles_users = articles.group_by { |t| t.user_id}
   end
  
 end
+
+

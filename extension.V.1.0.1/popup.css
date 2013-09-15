@@ -1,0 +1,20 @@
+*{margin:0;padding:0}
+body{min-width:301px;min-height:160px;background-color:#f9f7f5;font-family:verdana, arial, helvetica, sans-serif;color:#57616b;-webkit-font-smoothing:antialiased}
+.progress{width:100%;min-height:10px;background-color:#23adeb;font-size:18px;color:#fff;text-transform:uppercase;float:left}
+.progress p,.progress div{float:left}
+.progress .loading{display:none;margin-left:105px;padding:15px 0}
+.progress .saved{display:none;margin-left:110px;padding:15px 0}
+.progress .error p{text-transform:none;font-size:16px;padding:18px 30px}
+.label{font-size:16px;text-transform:uppercase;height:37px;width:105px;padding-left:20px;float:left;font-weight:600;padding-top:18px}
+.row{height:55px;width:100%;border-top:2px solid #eeecea;border-left:2px solid #eeecea;border-right:2px solid #eeecea}
+.time-val{height:40px;width:35px;border-left:2px solid #eeecea;float:left;font-size:18px;padding-left:21px;padding-top:15px}
+.time-val:hover{background-color:#23adeb;color:#fff;cursor:pointer}
+#login .text{font-size:14px;color:#333d48;text-align:center;padding:10px 21px}
+#login .logo{padding-bottom:10px;border-bottom:2px solid #eeecea;margin:15px 0 10px}
+#login .twitter-button{height:40px;width:240px;background-color:#25a6e9;float:left;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;overflow:hidden;cursor:pointer;margin:20px 33px}
+#login .twitter-button:hover{background-color:#40b8f6}
+#login .twitter-button .icon{background-image:url(twitter-icon.png);height:40px;width:50px;float:left}
+#login .twitter-button .text-on-button{color:#fff;text-transform:uppercase;font-size:11px;font-weight:600;letter-spacing:1px;text-shadow:-1px -1px 0 rgba(0,0,0,0.1);float:left;display:block;margin:13px 0 0 16px}
+.progress .loading .spinner,.progress .saved .check{padding-right:10px}
+.progress .loading p,.progress .saved p{margin-top:2px}
+.progress .error,#url,#login,#app{display:none}

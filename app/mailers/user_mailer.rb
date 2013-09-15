@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	@articles = articles
     mail( :to => @user.email,
-    	:subject => 'Articles Have Arrived',
+    	:subject => 'Your Articles Have Arrived',
     	:from => 'past@timecapsule.io',
     	:fromname => 'Timecapsule.io' )
   end
