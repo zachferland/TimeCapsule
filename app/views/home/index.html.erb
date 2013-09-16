@@ -28,7 +28,13 @@
 	<div class="wrapper">
 		<h2>It is as easy as ... <span> </span> </h2>
 		<div class="chrome-browser">
-			<%= video_tag "demo_final.mov", :height => "650px", :controls => false, :autobuffer => "autobuffer", :autoplay => "autoplay", :loop => true %>
+			
+
+			<video height="650px" autobuffer="autobuffer" autoplay="autoplay" loop="true">
+  				<source src="<%= video_url 'demo_final720.mov' %>" type="video/mp4">
+  				<source src="<%= video_url 'demo_final720.mov' %>" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
 		</div>
 
 	</div>
