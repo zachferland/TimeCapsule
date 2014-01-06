@@ -101,7 +101,7 @@ p, h1, a, h2 {
   padding-top: 140px;
 
   .heading {
-    font-size: 56px;
+    font-size: 50px;
     color: #fff;
     margin-top: 23px;
     text-align: center;
@@ -597,6 +597,31 @@ p, h1, a, h2 {
   }
 }
 
+
+
+.share-box {
+  float: right;
+  margin-right: 25px;
+
+  .bitcoin {
+    float: left; 
+    margin-top: 30px;
+    padding-right: 20px;
+  }
+
+  .twitter {
+    float: left;
+    margin-top: 31px;
+    margin-right: 0;
+  }
+
+  .facebook { 
+    float: left;
+    margin-top: 30px;
+  }
+
+
+}
 
 
 

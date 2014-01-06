@@ -1,22 +1,63 @@
 <script>
 	mixpanel.track("Home Page Load");
 </script> 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=359176614215413";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script src="http://coinwidget.com/widget/coin.js"></script>
 
 <div class="header">
 	<div class="wrapper">
 		<div class="logo">
 			<%= image_tag "logo.png" %>
 		</div>
+
 		<div class="login" onclick="mixpanel.track('Click Login Button');">
 			<%= link_to "Login", new_user_session_path %>
 		</div>
+
+
+
+		<div class="share-box">
+			<div class="bitcoin">
+			<script>
+				CoinWidgetCom.go({
+					wallet_address: "1HAomFh557tvDnNGfJNkybS3fbTrxbmJQd"
+					, currency: "bitcoin"
+					, counter: "count"
+					, alignment: "bl"
+					, qrcode: true
+					, auto_show: false
+					, lbl_button: "Donate"
+					, lbl_address: "My Bitcoin Address:"
+					, lbl_count: "donations"
+					, lbl_amount: "BTC"
+				});
+			</script>
+			</div>
+          <div class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://timecapsule.io" data-text="Send useful articles into the future to reread again later with Timecapsule.io" data-via="zachferland">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          </div>
+          <div class="facebook">
+            <div class="fb-like" data-href="http://timecapsule.io" data-width="80" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+          </div>
+        </div>
+
+
+		
 	</div>
 </div>
 
 <div class="cover">
 	<div class="wrapper">
-		<h1 class="heading">Send Your Favorite Articles to the Future</h1>
-		<h2 class="sub-heading">A simple Chrome extension that makes it easy to remember the articles you want to read again.</h2>
+		<h1 class="heading">Send Useful Articles into the Future to Read Again</h1>
+		<h2 class="sub-heading">A simple Chrome extension that makes it easy to remember the articles you want to read again at a later date.</h2>
 		<div class="buttons">
 			<div class="learn-more" > Learn More </div>
 			<div class="download" onclick='mixpanel.track("Click Signup Button", {"id": "main");'> <%= link_to "Download Chrome Extension", new_user_registration_path %> </div>
